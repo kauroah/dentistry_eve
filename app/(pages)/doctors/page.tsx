@@ -1,9 +1,6 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight } from "lucide-react";
 
 /* ================= DATA ================= */
 
@@ -42,7 +39,8 @@ const doctors = [
     surname: "Евгения Сергеевна",
     specialty: "Терапевтическая стоматология",
     role: "Стоматолог-терапевт",
-    image: "https://eva-dent.com/wp-content/uploads/2021/03/16040893_maruseva-evgeniya-sergeevna-_result__-min-min.jpg",
+    image:
+      "https://eva-dent.com/wp-content/uploads/2021/03/16040893_maruseva-evgeniya-sergeevna-_result__-min-min.jpg",
   },
   {
     id: 5,
@@ -60,7 +58,8 @@ const doctors = [
     surname: "Равиль Фаритович",
     specialty: "Стоматология",
     role: "Врач-стоматолог",
-    image: "https://eva-dent.com/wp-content/uploads/2025/08/Ravil-Faritovich-Nuriev.webp",
+    image:
+      "https://eva-dent.com/wp-content/uploads/2025/08/Ravil-Faritovich-Nuriev.webp",
   },
   {
     id: 7,
@@ -73,32 +72,33 @@ const doctors = [
   },
 ];
 
-/* ================= COMPONENT ================= */
+/* ================= PAGE ================= */
 
-export function DoctorsSection() {
-  const previewDoctors = doctors.slice(0, 3);
-
+export default function DoctorsPage() {
   return (
-    <section className="bg-muted/30 py-20 lg:py-24">
-      <div className="container mx-auto px-4">
-        {/* HEADER */}
-        <div className="mb-12 text-center">
-          <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">
-            Наши специалисты
-          </h2>
-          <p className="mx-auto max-w-xl text-base text-muted-foreground">
-            Команда опытных врачей Eva Dent с многолетней клинической практикой
+    <main className="bg-background">
+      {/* HEADER */}
+      <section className="border-b py-16">
+        <div className="container mx-auto px-4">
+          <h1 className="mb-3 text-3xl font-bold tracking-tight sm:text-4xl">
+            Наши врачи
+          </h1>
+          <p className="max-w-2xl text-base text-muted-foreground">
+            Врачи стоматологии Eva Dent — опытные специалисты, которым доверяют
+            здоровье и улыбку
           </p>
         </div>
+      </section>
 
-        {/* DOCTORS GRID (CENTERED & SMALLER) */}
-        <div className="mx-auto max-w-5xl">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 justify-items-center">
-            {previewDoctors.map((doctor) => (
+      {/* DOCTORS GRID */}
+      <section className="py-16 lg:py-20">
+        <div className="container mx-auto px-4">
+          <div className="grid gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            {doctors.map((doctor) => (
               <Link
                 key={doctor.id}
                 href={`/doctors/${doctor.slug}`}
-                className="group w-full max-w-xs"
+                className="group"
               >
                 <Card className="overflow-hidden border border-border bg-card transition-shadow duration-200 hover:shadow-md">
                   {/* IMAGE */}
@@ -109,6 +109,7 @@ export function DoctorsSection() {
                       fill
                       className="object-cover"
                     />
+
                     <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent" />
 
                     <div className="absolute inset-x-0 bottom-0 px-3 py-3 text-white">
@@ -135,18 +136,7 @@ export function DoctorsSection() {
             ))}
           </div>
         </div>
-
-        {/* ALL DOCTORS LINK */}
-        <div className="mt-10 text-center">
-          <Link
-            href="/doctors"
-            className="inline-flex items-center gap-2 text-base font-medium text-primary transition-colors hover:text-primary/80"
-          >
-            Все врачи
-            <ArrowRight className="h-4 w-4" />
-          </Link>
-        </div>
-      </div>
-    </section>
+      </section>
+    </main>
   );
 }

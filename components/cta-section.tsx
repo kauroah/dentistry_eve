@@ -69,7 +69,7 @@ export function CTASection() {
               <Textarea
                 id="comment"
                 placeholder="Опишите причину обращения или задайте вопрос"
-                className="min-h-[120px] resize-none rounded-xl"
+                className="min-h-30 resize-none rounded-xl"
               />
             </div>
 

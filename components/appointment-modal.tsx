@@ -63,7 +63,7 @@ export function AppointmentModal({ children, className }: AppointmentModalProps)
       <DialogTrigger asChild className={className}>
         {children}
       </DialogTrigger>
-      <DialogContent className="max-w-[560px] gap-0 overflow-hidden rounded-2xl border-0 p-0 shadow-2xl">
+      <DialogContent className="max-w-140 gap-0 overflow-hidden rounded-2xl border-0 p-0 shadow-2xl">
         <DialogHeader className="relative px-8 pb-6 pt-8">
           <DialogTitle className="text-2xl font-semibold text-foreground">
             Отправить заявку

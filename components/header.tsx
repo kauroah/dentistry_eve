@@ -12,7 +12,13 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, Phone, User, HelpCircle, Newspaper } from "lucide-react";
+import {
+  Menu,
+  Phone,
+  User,
+  HelpCircle,
+  Newspaper,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 import { AppointmentModal } from "@/components/appointment-modal";
 import { EvaDentLogo } from "@/public/logo/eva-dent-logo";
@@ -49,6 +55,44 @@ const services = [
     title: "Гигиена",
     href: "/stomatologiya/gigiena",
     description: "Профессиональная чистка, фторирование",
+  },
+];
+
+const doctors = [
+  {
+    name: "Аллуш Аднан Бурхан",
+    role: "Директор, врач-ортодонт",
+    href: "/doctors/allush-adnan",
+  },
+  {
+    name: "Аллуш Наталья Сергеевна",
+    role: "Главный врач, хирург, имплантолог",
+    href: "/doctors/allush-natalya",
+  },
+  {
+    name: "Вафа Тарек Ахмедович",
+    role: "Стоматолог ортопед-терапевт",
+    href: "/doctors/vafa-tarek",
+  },
+  {
+    name: "Вафина Евгения Сергеевна",
+    role: "Стоматолог-терапевт",
+    href: "/doctors/vafina-evgeniya",
+  },
+  {
+    name: "Халимзода Мохинав Исо",
+    role: "Стоматолог-терапевт",
+    href: "/doctors/halimzoda-mohinav",
+  },
+  {
+    name: "Нуриев Равиль Фаритович",
+    role: "Врач-стоматолог",
+    href: "/doctors/nuriev-ravil",
+  },
+  {
+    name: "Хазаалех Тамер Хасан",
+    role: "Стоматолог-ортопед",
+    href: "/doctors/khazaaleh-tamer",
   },
 ];
 
@@ -111,31 +155,72 @@ export function Header() {
                   </NavigationMenuLink>
                 </NavigationMenuItem>
 
+                {/* SERVICES */}
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className="bg-transparent">
                     Услуги
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <ul className="grid w-[500px] gap-3 p-4 md:grid-cols-2">
+                    <ul className="grid w-125 gap-3 p-4 md:grid-cols-2">
                       {services.map((service) => (
                         <li key={service.title}>
                           <NavigationMenuLink asChild>
                             <Link
                               href={service.href}
                               className={cn(
-                                "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                                "block rounded-md p-3 transition-colors",
+                                "hover:bg-accent hover:text-accent-foreground"
                               )}
                             >
-                              <div className="text-sm font-medium leading-none">
+                              <div className="text-sm font-medium">
                                 {service.title}
                               </div>
-                              <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                              <p className="text-sm text-muted-foreground">
                                 {service.description}
                               </p>
                             </Link>
                           </NavigationMenuLink>
                         </li>
                       ))}
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+
+                {/* DOCTORS */}
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="bg-transparent">
+                    Врачи
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="grid w-125 gap-3 p-4 md:grid-cols-2">
+                      {doctors.map((doctor) => (
+                        <li key={doctor.name}>
+                          <NavigationMenuLink asChild>
+                            <Link
+                              href={doctor.href}
+                              className="block rounded-md p-3 transition-colors hover:bg-accent"
+                            >
+                              <div className="text-sm font-medium">
+                                {doctor.name}
+                              </div>
+                              <p className="text-sm text-muted-foreground">
+                                {doctor.role}
+                              </p>
+                            </Link>
+                          </NavigationMenuLink>
+                        </li>
+                      ))}
+
+                      <li className="md:col-span-2">
+                        <NavigationMenuLink asChild>
+                          <Link
+                            href="/doctors"
+                            className="block rounded-md p-3 text-center font-medium text-primary hover:bg-accent"
+                          >
+                            Все врачи
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
                     </ul>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
@@ -182,6 +267,7 @@ export function Header() {
                 </Button>
               </AppointmentModal>
 
+              {/* MOBILE MENU */}
               <Sheet open={isOpen} onOpenChange={setIsOpen}>
                 <SheetTrigger asChild className="lg:hidden">
                   <Button variant="outline" size="icon" className="rounded-full">
@@ -189,7 +275,7 @@ export function Header() {
                   </Button>
                 </SheetTrigger>
 
-                <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+                <SheetContent side="right" className="w-75 sm:w-100">
                   <nav className="flex flex-col gap-4 pt-8">
                     <Link href="/" onClick={() => setIsOpen(false)}>
                       Главная
@@ -207,6 +293,28 @@ export function Header() {
                             {service.title}
                           </Link>
                         ))}
+                      </div>
+                    </div>
+
+                    <div>
+                      <span className="font-medium">Врачи</span>
+                      <div className="ml-4 mt-2 flex flex-col gap-2">
+                        {doctors.map((doctor) => (
+                          <Link
+                            key={doctor.name}
+                            href={doctor.href}
+                            onClick={() => setIsOpen(false)}
+                          >
+                            {doctor.name}
+                          </Link>
+                        ))}
+                        <Link
+                          href="/doctors"
+                          onClick={() => setIsOpen(false)}
+                          className="font-medium text-primary"
+                        >
+                          Все врачи
+                        </Link>
                       </div>
                     </div>
 

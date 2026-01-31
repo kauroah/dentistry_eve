@@ -73,7 +73,7 @@ export default function SberZdoroviePage() {
   return (
     <main>
       {/* ================= HERO ================= */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#21A038]/10 via-background to-[#21A038]/5 py-16 lg:py-24">
+      <section className="relative overflow-hidden bg-linear-to-br from-[#21A038]/10 via-background to-[#21A038]/5 py-16 lg:py-24">
         <div className="container mx-auto px-4">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
@@ -198,7 +198,7 @@ export default function SberZdoroviePage() {
       {/* ================= CTA ================= */}
       <section className="py-16 lg:py-24">
         <div className="container mx-auto px-4 text-center">
-          <div className="mx-auto max-w-3xl rounded-3xl bg-gradient-to-br from-[#21A038] to-[#1D8F32] p-8 text-white">
+          <div className="mx-auto max-w-3xl rounded-3xl bg-linear-to-br from-[#21A038] to-[#1D8F32] p-8 text-white">
             <h2 className="mb-4 text-2xl font-bold sm:text-3xl">
               Запишитесь на приём онлайн
             </h2>

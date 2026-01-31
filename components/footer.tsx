@@ -86,7 +86,7 @@ export function Footer() {
             </h3>
             <ul className="flex flex-col gap-4">
               <li className="flex items-start gap-3">
-                <MapPin className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary" />
+                <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                 <div className="flex flex-col gap-1">
                   <span className="text-sm text-primary-foreground/70">
                     г. Казань, ул. Назарбаева, 10
@@ -97,7 +97,7 @@ export function Footer() {
                 </div>
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="h-5 w-5 flex-shrink-0 text-primary" />
+                <Phone className="h-5 w-5 shrink-0 text-primary" />
                 <a
                   href="tel:+78432770777"
                   className="text-sm text-primary-foreground/70 transition-colors hover:text-primary"
@@ -106,7 +106,7 @@ export function Footer() {
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <Mail className="h-5 w-5 flex-shrink-0 text-primary" />
+                <Mail className="h-5 w-5 shrink-0 text-primary" />
                 <a
                   href="mailto:info@eva-dent.ru"
                   className="text-sm text-primary-foreground/70 transition-colors hover:text-primary"
@@ -115,7 +115,7 @@ export function Footer() {
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <Clock className="h-5 w-5 flex-shrink-0 text-primary" />
+                <Clock className="h-5 w-5 shrink-0 text-primary" />
                 <span className="text-sm text-primary-foreground/70">Пн-Сб: 9:00 - 20:00</span>
               </li>
             </ul>

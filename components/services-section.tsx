@@ -127,14 +127,14 @@ export function ServicesSection() {
           {services[activeCategory as keyof typeof services].map((service) => (
             <Link key={service.title} href={service.href} className="group">
               <Card className="h-full overflow-hidden border-0 bg-muted/50 transition-all duration-300 hover:bg-muted hover:shadow-lg">
-                <div className="relative aspect-[16/10] overflow-hidden">
+                <div className="relative aspect-16/10 overflow-hidden">
                   <Image
                     src={service.image || "/placeholder.svg"}
                     alt={service.title}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/30 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
+                  <div className="absolute inset-0 bg-linear-to-t from-foreground/30 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
                 </div>
                 <CardContent className="p-6">
                   <h3 className="mb-2 text-xl font-semibold text-foreground">{service.title}</h3>

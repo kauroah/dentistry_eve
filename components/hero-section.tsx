@@ -56,7 +56,7 @@ export function HeroSection() {
   }, [nextSlide]);
 
   return (
-    <section className="relative h-[600px] overflow-hidden bg-foreground lg:h-[700px]">
+    <section className="relative h-150 overflow-hidden bg-foreground lg:h-175">
       {/* Slides */}
       {slides.map((slide, index) => (
         <div
@@ -72,7 +72,7 @@ export function HeroSection() {
             className="object-cover"
             priority={index === 0}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/50 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-r from-foreground/80 via-foreground/50 to-transparent" />
         </div>
       ))}
 
@@ -132,7 +132,7 @@ export function HeroSection() {
               {/* Virtual tour card */}
               <div className="group cursor-pointer rounded-2xl border border-primary-foreground/20 bg-primary-foreground/10 p-5 backdrop-blur-sm transition-all hover:bg-primary-foreground/20">
                 <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground">
                     <MapPin className="h-6 w-6" />
                   </div>
                   <div>
@@ -149,7 +149,7 @@ export function HeroSection() {
                   size="lg"
                   className="h-auto justify-start gap-4 rounded-2xl px-5 py-4 text-left"
                 >
-                  <CalendarDays className="h-6 w-6 flex-shrink-0" />
+                  <CalendarDays className="h-6 w-6 shrink-0" />
                   <div>
                     <p className="font-semibold">Записаться</p>
                     <p className="text-xs font-normal opacity-80">на приём</p>
@@ -162,7 +162,7 @@ export function HeroSection() {
                 variant="outline"
                 className="h-auto justify-start gap-4 rounded-2xl border-primary-foreground/20 bg-primary-foreground/10 px-5 py-4 text-left text-primary-foreground hover:bg-primary-foreground/20 hover:text-primary-foreground"
               >
-                <MessageCircle className="h-6 w-6 flex-shrink-0" />
+                <MessageCircle className="h-6 w-6 shrink-0" />
                 <div>
                   <p className="font-semibold">Онлайн</p>
                   <p className="text-xs font-normal opacity-80">консультация</p>
@@ -174,7 +174,7 @@ export function HeroSection() {
       </div>
 
       {/* Mobile quick actions */}
-      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-foreground/90 to-transparent p-4 lg:hidden">
+      <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-foreground/90 to-transparent p-4 lg:hidden">
         <div className="container mx-auto flex gap-3">
           <AppointmentModal>
             <Button size="lg" className="flex-1 rounded-xl">
