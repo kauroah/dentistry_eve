@@ -28,6 +28,13 @@ const slides = [
     title: "Eva Dent",
     description: "Опытные специалисты помогут сохранить здоровье ваших зубов на долгие годы",
   },
+  {
+    id: 4,
+    image: "https://avatars.mds.yandex.net/get-altay/216588/2a0000015b17fb7ff276bbec428c35d3b43c/XXXL",
+    subtitle: "Профессиональная каманда",
+    title: "Eva Dent",
+    description: "Опытные специалисты помогут сохранить здоровье ваших зубов на долгие годы",
+  },
 ];
 
 const quickActions = [

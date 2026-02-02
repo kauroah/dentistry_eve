@@ -102,7 +102,7 @@ export default function DoctorsPage() {
               >
                 <Card className="overflow-hidden border border-border bg-card transition-shadow duration-200 hover:shadow-md">
                   {/* IMAGE */}
-                  <div className="relative aspect-[3/4] overflow-hidden">
+                  <div className="relative aspect-3/4 overflow-hidden">
                     <Image
                       src={doctor.image}
                       alt={`${doctor.name} ${doctor.surname}`}
