@@ -20,24 +20,40 @@ export const metadata: Metadata = {
 
 const bracketTypes = [
   {
-    title: "Металлические брекеты",
-    description: "Классические надёжные брекеты. Оптимальный вариант по соотношению цена/качество.",
+    title: "Консультация ортодонта",
+    description:
+      "Первичный осмотр врача-ортодонта, диагностика прикуса и составление плана лечения.",
+    price: "1 500 ₽",
+  },
+  {
+    title: "Металлическая брекет-система",
+    description:
+      "Классические ортодонтические брекеты. Надёжное и эффективное исправление прикуса.",
     price: "от 45 000 ₽",
   },
   {
-    title: "Керамические брекеты",
-    description: "Эстетичные брекеты из керамики, практически незаметны на зубах.",
+    title: "Керамическая брекет-система",
+    description:
+      "Эстетичные брекеты, цвет которых максимально приближен к цвету зубов.",
     price: "от 65 000 ₽",
   },
   {
     title: "Сапфировые брекеты",
-    description: "Прозрачные брекеты из искусственного сапфира. Максимальная эстетика.",
+    description:
+      "Прозрачные брекеты из искусственного сапфира — практически незаметны на зубах.",
     price: "от 75 000 ₽",
   },
   {
     title: "Элайнеры",
-    description: "Невидимые съёмные капы для выравнивания зубов. Современная альтернатива брекетам.",
+    description:
+      "Современные прозрачные капы для выравнивания зубов без брекетов.",
     price: "от 180 000 ₽",
+  },
+  {
+    title: "Ретейнер после брекетов",
+    description:
+      "Фиксирующая конструкция для сохранения результата после ортодонтического лечения.",
+    price: "от 5 000 ₽",
   },
 ];
 
@@ -103,7 +119,7 @@ export default function BreketyPage() {
               <div className="mb-6 grid gap-2 sm:grid-cols-2">
                 {benefits.slice(0, 4).map((benefit) => (
                   <div key={benefit} className="flex items-center gap-2">
-                    <CheckCircle className="h-5 w-5 flex-shrink-0 text-primary" />
+                    <CheckCircle className="h-5 w-5 shrink-0 text-primary" />
                     <span className="text-sm text-foreground">{benefit}</span>
                   </div>
                 ))}
@@ -118,7 +134,7 @@ export default function BreketyPage() {
                 </Button>
               </div>
             </div>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
+            <div className="relative aspect-4/3 overflow-hidden rounded-2xl">
               <Image
                 src="/images/dental-braces.jpg"
                 alt="Брекеты и ортодонтия в клинике Eva Dent Казань"
@@ -137,13 +153,13 @@ export default function BreketyPage() {
           <h2 className="mb-8 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
             Виды брекет-систем
           </h2>
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {bracketTypes.map((bracket) => (
               <Card key={bracket.title} className="h-full">
                 <CardHeader>
                   <div className="flex items-start justify-between">
                     <CardTitle className="text-lg">{bracket.title}</CardTitle>
-                    <span className="flex-shrink-0 rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
+                    <span className="shrink-0 rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
                       {bracket.price}
                     </span>
                   </div>

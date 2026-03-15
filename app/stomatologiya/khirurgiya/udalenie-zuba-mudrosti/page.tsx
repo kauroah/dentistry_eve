@@ -81,15 +81,18 @@ export default function UdalenieZubaMudrostiPage() {
               <h1 className="mb-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
                 Удаление зубов мудрости в Казани
               </h1>
-              <p className="mb-2 text-lg font-medium text-primary">от 7 500 ₽</p>
+              <p className="mb-2 text-lg font-medium text-primary">
+                от 7 500 ₽ (сложное удаление)
+              </p>
               <p className="mb-6 text-lg text-muted-foreground">
-                Безболезненное удаление зубов мудрости любой сложности. Используем 3D-диагностику
-                для точного планирования и атравматичные методы для быстрого заживления.
+                  Безболезненное удаление зубов мудрости любой сложности: ретинированных,
+                  дистопированных и частично прорезавшихся. Используем 3D-диагностику
+                  и атравматичные методы для быстрого заживления.
               </p>
               <div className="mb-6 grid gap-2 sm:grid-cols-2">
                 {benefits.slice(0, 4).map((benefit) => (
                   <div key={benefit} className="flex items-center gap-2">
-                    <CheckCircle className="h-5 w-5 flex-shrink-0 text-primary" />
+                    <CheckCircle className="h-5 w-5 shrink-0 text-primary" />
                     <span className="text-sm text-foreground">{benefit}</span>
                   </div>
                 ))}
@@ -104,7 +107,7 @@ export default function UdalenieZubaMudrostiPage() {
                 </Button>
               </div>
             </div>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
+            <div className="relative aspect-4/3 overflow-hidden rounded-2xl">
               <Image
                 src="/images/dental-treatment.jpg"
                 alt="Удаление зуба мудрости в клинике Eva Dent"

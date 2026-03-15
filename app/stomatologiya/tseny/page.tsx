@@ -12,27 +12,56 @@ export const metadata: Metadata = {
 
 const priceCategories = [
   {
+    title: "Имплантология",
+    href: "/stomatologiya/implantatsiya",
+    items: [
+      { service: "Имплант Osstem", price: "55 000 ₽" },
+      { service: "Имплант Straumann", price: "120 000 ₽" },
+      { service: "Имплант Medentica", price: "75 000 ₽" },
+      { service: "Имплант тонкий 3.0", price: "40 000 ₽" },
+      { service: "Установка импланта ADIN", price: "15 000 ₽" },
+      { service: "Установка импланта Dio / Osstem", price: "39 900 ₽" },
+      { service: "Закрытый синус-лифтинг", price: "25 000 ₽" },
+      { service: "Открытый синус-лифтинг", price: "50 000 ₽" },
+      { service: "Операция имплантации", price: "от 55 000 ₽" },
+    ],
+  },
+
+  {
+    title: "Ортопедия и протезирование",
+    href: "/stomatologiya/protezirovanie",
+    items: [
+      { service: "Металлокерамическая коронка на имплант DIO", price: "35 000 ₽" },
+      { service: "Металлокерамическая коронка на имплант (винтовая фиксация)", price: "40 000 ₽" },
+      { service: "Циркониевая коронка на имплант", price: "от 17 900 ₽" },
+      { service: "Временный абатмент + коронка", price: "20 000 ₽" },
+      { service: "Балка ортопедическая", price: "120 000 ₽" },
+      { service: "Бюгельный протез", price: "90 000 ₽" },
+    ],
+  },
+
+  {
     title: "Терапевтическая стоматология",
     href: "/stomatologiya/lechenie-zubov",
     items: [
-      { service: "Консультация стоматолога", price: "Бесплатно" },
       { service: "Лечение кариеса", price: "от 3 500 ₽" },
-      { service: "Лечение пульпита (1 канал)", price: "от 5 500 ₽" },
+      { service: "Лечение пульпита", price: "от 5 500 ₽" },
       { service: "Лечение периодонтита", price: "от 7 000 ₽" },
-      { service: "Художественная реставрация", price: "от 6 000 ₽" },
+      { service: "Художественная реставрация зуба", price: "от 6 000 ₽" },
     ],
   },
+
   {
-    title: "Имплантация",
-    href: "/stomatologiya/implantatsiya",
+    title: "Хирургическая стоматология",
+    href: "/stomatologiya/khirurgiya",
     items: [
-      { service: "Имплант Medentika (Германия)", price: "от 35 000 ₽" },
-      { service: "Имплант Straumann (Швейцария)", price: "от 55 000 ₽" },
-      { service: "Коронка на имплант", price: "от 25 000 ₽" },
-      { service: "Синус-лифтинг", price: "от 35 000 ₽" },
-      { service: "Костная пластика", price: "от 25 000 ₽" },
+      { service: "Удаление зуба (простое)", price: "от 2 500 ₽" },
+      { service: "Удаление зуба (сложное)", price: "от 5 000 ₽" },
+      { service: "Удаление зуба мудрости", price: "от 7 500 ₽" },
+      { service: "Резекция верхушки корня", price: "от 8 000 ₽" },
     ],
   },
+
   {
     title: "Ортодонтия",
     href: "/stomatologiya/brekety",
@@ -44,34 +73,14 @@ const priceCategories = [
       { service: "Элайнеры", price: "от 180 000 ₽" },
     ],
   },
+
   {
-    title: "Протезирование",
-    href: "/stomatologiya/protezirovanie",
-    items: [
-      { service: "Металлокерамическая коронка", price: "от 12 000 ₽" },
-      { service: "Циркониевая коронка", price: "от 25 000 ₽" },
-      { service: "Винир E-max", price: "от 30 000 ₽" },
-      { service: "Съёмный протез (полный)", price: "от 35 000 ₽" },
-      { service: "Бюгельный протез", price: "от 55 000 ₽" },
-    ],
-  },
-  {
-    title: "Хирургическая стоматология",
-    href: "/stomatologiya/khirurgiya",
-    items: [
-      { service: "Удаление зуба (простое)", price: "от 2 500 ₽" },
-      { service: "Удаление зуба (сложное)", price: "от 5 000 ₽" },
-      { service: "Удаление зуба мудрости", price: "от 7 500 ₽" },
-      { service: "Резекция верхушки корня", price: "от 8 000 ₽" },
-    ],
-  },
-  {
-    title: "Профессиональная гигиена",
+    title: "Профилактика и гигиена",
     href: "/stomatologiya/gigiena",
     items: [
-      { service: "Профессиональная чистка", price: "от 4 000 ₽" },
+      { service: "Профессиональная чистка зубов", price: "от 4 000 ₽" },
       { service: "Air Flow", price: "от 3 500 ₽" },
-      { service: "Фторирование", price: "от 2 000 ₽" },
+      { service: "Фторирование зубов", price: "от 2 000 ₽" },
       { service: "Герметизация фиссур", price: "от 2 500 ₽" },
     ],
   },
@@ -114,7 +123,7 @@ export default function PricesPage() {
                         className="flex items-center justify-between py-3 first:pt-0 last:pb-0"
                       >
                         <span className="text-sm text-foreground">{item.service}</span>
-                        <span className="flex-shrink-0 font-medium text-primary">{item.price}</span>
+                        <span className="shrink-0 font-medium text-primary">{item.price}</span>
                       </div>
                     ))}
                   </div>

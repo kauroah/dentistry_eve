@@ -22,23 +22,25 @@ const surgeryTypes = [
   {
     title: "Удаление зубов",
     href: "/stomatologiya/khirurgiya/udalenie-zubov",
-    description: "Простое и сложное удаление зубов с применением современной анестезии.",
+    description: "Простое и сложное удаление зубов с современной анестезией.",
     price: "от 2 500 ₽",
   },
   {
     title: "Удаление зуба мудрости",
     href: "/stomatologiya/khirurgiya/udalenie-zuba-mudrosti",
-    description: "Удаление ретинированных и дистопированных зубов мудрости.",
+    description: "Удаление ретинированных и дистопированных восьмёрок.",
     price: "от 7 500 ₽",
   },
   {
     title: "Резекция верхушки корня",
-    description: "Хирургическое удаление кисты или гранулёмы на корне зуба.",
+    href: "/stomatologiya/khirurgiya/rezekciya-kornya",
+    description: "Хирургическое удаление кисты или воспаления на корне зуба.",
     price: "от 8 000 ₽",
   },
   {
     title: "Пластика уздечки",
-    description: "Коррекция короткой уздечки языка или губы.",
+    href: "/stomatologiya/khirurgiya/plastika-uzdechki",
+    description: "Коррекция уздечки губы или языка для улучшения функции и дикции.",
     price: "от 5 000 ₽",
   },
 ];
@@ -105,7 +107,7 @@ export default function KhirurgiyaPage() {
               <div className="mb-6 grid gap-2 sm:grid-cols-2">
                 {benefits.slice(0, 4).map((benefit) => (
                   <div key={benefit} className="flex items-center gap-2">
-                    <CheckCircle className="h-5 w-5 flex-shrink-0 text-primary" />
+                    <CheckCircle className="h-5 w-5 shrink-0 text-primary" />
                     <span className="text-sm text-foreground">{benefit}</span>
                   </div>
                 ))}
@@ -120,7 +122,7 @@ export default function KhirurgiyaPage() {
                 </Button>
               </div>
             </div>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
+            <div className="relative aspect-4/3 overflow-hidden rounded-2xl">
               <Image
                 src="/images/dental-treatment.jpg"
                 alt="Хирургическая стоматология в клинике Eva Dent Казань"
@@ -147,7 +149,7 @@ export default function KhirurgiyaPage() {
                     <CardHeader>
                       <div className="flex items-start justify-between">
                         <CardTitle className="text-lg">{type.title}</CardTitle>
-                        <span className="flex-shrink-0 rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
+                        <span className="shrink-0 rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
                           {type.price}
                         </span>
                       </div>
@@ -166,7 +168,7 @@ export default function KhirurgiyaPage() {
                   <CardHeader>
                     <div className="flex items-start justify-between">
                       <CardTitle className="text-lg">{type.title}</CardTitle>
-                      <span className="flex-shrink-0 rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
+                      <span className="shrink-0 rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
                         {type.price}
                       </span>
                     </div>

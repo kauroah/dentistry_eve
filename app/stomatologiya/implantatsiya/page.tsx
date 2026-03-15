@@ -23,20 +23,41 @@ const implantTypes = [
     title: "Straumann",
     href: "/stomatologiya/implantatsiya/straumann",
     description: "Премиальные швейцарские импланты с пожизненной гарантией.",
-    price: "от 55 000 ₽",
+    price: "от 120 000 ₽",
     country: "Швейцария",
   },
   {
     title: "Medentika",
     href: "/stomatologiya/implantatsiya/medentika",
-    description: "Немецкое качество по доступной цене. Отличное соотношение цена/качество.",
-    price: "от 35 000 ₽",
+    description: "Немецкие импланты с отличным соотношением цена/качество.",
+    price: "от 75 000 ₽",
     country: "Германия",
   },
   {
+    title: "Osstem",
+    href: "/stomatologiya/implantatsiya/osstem",
+    description: "Надёжные корейские импланты с высокой приживаемостью.",
+    price: "от 55 000 ₽",
+    country: "Южная Корея",
+  },
+  {
     title: "Коронка на имплант",
-    href: "/stomatologiya/implantatsiya/koronka-na-implant",
-    description: "Установка коронки на имплант: металлокерамика или цирконий.",
+    href: "/stomatologiya/protezirovanie/koronka-na-implant",
+    description: "Установка постоянной коронки после имплантации.",
+    price: "от 35 000 ₽",
+    country: "",
+  },
+  {
+    title: "Синус-лифтинг",
+    href: "/stomatologiya/implantatsiya/sinus-lifting",
+    description: "Операция по увеличению объёма костной ткани верхней челюсти.",
+    price: "от 25 000 ₽",
+    country: "",
+  },
+  {
+    title: "Костная пластика",
+    href: "/stomatologiya/implantatsiya/kostnaya-plastika",
+    description: "Восстановление костной ткани перед установкой импланта.",
     price: "от 25 000 ₽",
     country: "",
   },
@@ -104,7 +125,7 @@ export default function ImplantatsiyaPage() {
               <div className="mb-6 grid gap-2 sm:grid-cols-2">
                 {benefits.slice(0, 4).map((benefit) => (
                   <div key={benefit} className="flex items-center gap-2">
-                    <CheckCircle className="h-5 w-5 flex-shrink-0 text-primary" />
+                    <CheckCircle className="h-5 w-5 shrink-0 text-primary" />
                     <span className="text-sm text-foreground">{benefit}</span>
                   </div>
                 ))}
@@ -119,7 +140,7 @@ export default function ImplantatsiyaPage() {
                 </Button>
               </div>
             </div>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
+            <div className="relative aspect-4/3 overflow-hidden rounded-2xl">
               <Image
                 src="/images/dental-implant.jpg"
                 alt="Имплантация зубов в клинике Eva Dent Казань"
@@ -138,7 +159,7 @@ export default function ImplantatsiyaPage() {
           <h2 className="mb-8 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
             Системы имплантации
           </h2>
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {implantTypes.map((implant) => (
               <Link key={implant.title} href={implant.href} className="group">
                 <Card className="h-full transition-all hover:shadow-lg">
@@ -150,7 +171,7 @@ export default function ImplantatsiyaPage() {
                           <span className="text-sm text-muted-foreground">{implant.country}</span>
                         )}
                       </div>
-                      <span className="flex-shrink-0 rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
+                      <span className="shrink-0 rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
                         {implant.price}
                       </span>
                     </div>

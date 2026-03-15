@@ -20,28 +20,40 @@ export const metadata: Metadata = {
 
 const prostheticTypes = [
   {
-    title: "Виниры",
-    href: "/stomatologiya/protezirovanie/viniry",
-    description: "Тонкие керамические накладки для идеальной улыбки.",
-    price: "от 30 000 ₽",
-  },
-  {
-    title: "Коронки",
-    href: "/stomatologiya/protezirovanie/koronki",
-    description: "Металлокерамические и циркониевые коронки.",
-    price: "от 12 000 ₽",
+    title: "Металлокерамические коронки",
+    href: "/stomatologiya/protezirovanie/metallokeramika",
+    description: "Прочные и доступные коронки для восстановления жевательных зубов.",
+    price: "от 35 000 ₽",
   },
   {
     title: "Циркониевые коронки",
     href: "/stomatologiya/protezirovanie/tsirkonievaya-koronka",
-    description: "Безметалловые коронки из диоксида циркония.",
-    price: "от 25 000 ₽",
+    description: "Эстетичные безметалловые коронки из диоксида циркония.",
+    price: "от 17 900 ₽",
   },
   {
-    title: "Съёмные протезы",
-    href: "/stomatologiya/protezirovanie/semnyy-protez",
-    description: "Полные и частичные съёмные протезы.",
-    price: "от 35 000 ₽",
+    title: "Коронка на имплант",
+    href: "/stomatologiya/protezirovanie/koronka-na-implant",
+    description: "Фиксация коронки на имплантате с высокой точностью.",
+    price: "от 40 000 ₽",
+  },
+  {
+    title: "Бюгельные протезы",
+    href: "/stomatologiya/protezirovanie/byugelnyy-protez",
+    description: "Надёжные частичные съёмные протезы для восстановления зубного ряда.",
+    price: "90 000 ₽",
+  },
+  {
+    title: "Ортопедическая балка",
+    href: "/stomatologiya/protezirovanie/balka",
+    description: "Балочная система протезирования на имплантах.",
+    price: "120 000 ₽",
+  },
+  {
+    title: "Временная коронка на имплант",
+    href: "/stomatologiya/protezirovanie/vremennaya-koronka",
+    description: "Временное восстановление зуба на период приживления импланта.",
+    price: "20 000 ₽",
   },
 ];
 

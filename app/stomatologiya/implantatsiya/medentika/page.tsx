@@ -40,7 +40,7 @@ const faqs = [
   {
     question: "Сколько стоит имплант Medentika?",
     answer:
-      "Стоимость импланта Medentika в нашей клинике начинается от 35 000 рублей. Это включает имплант, операцию и контрольные осмотры. Коронка оплачивается отдельно.",
+      "Стоимость импланта Medentika в нашей клинике начинается от 75 000 рублей. В стоимость входит имплант и операция установки. Коронка оплачивается отдельно.",
   },
   {
     question: "Какая гарантия на Medentika?",
@@ -71,7 +71,7 @@ export default function MedentikaPage() {
               <h1 className="mb-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
                 Импланты Medentika
               </h1>
-              <p className="mb-2 text-lg font-medium text-primary">Германия | от 35 000 ₽</p>
+              <p className="mb-2 text-lg font-medium text-primary">Германия | от 75 000 ₽</p>
               <p className="mb-6 text-lg text-muted-foreground">
                 Medentika — немецкие импланты с оптимальным соотношением цены и качества.
                 Производятся на заводах группы Straumann с соблюдением высочайших стандартов.
@@ -79,7 +79,7 @@ export default function MedentikaPage() {
               <div className="mb-6 grid gap-2 sm:grid-cols-2">
                 {benefits.slice(0, 4).map((benefit) => (
                   <div key={benefit} className="flex items-center gap-2">
-                    <CheckCircle className="h-5 w-5 flex-shrink-0 text-primary" />
+                    <CheckCircle className="h-5 w-5 shrink-0 text-primary" />
                     <span className="text-sm text-foreground">{benefit}</span>
                   </div>
                 ))}
@@ -94,7 +94,7 @@ export default function MedentikaPage() {
                 </Button>
               </div>
             </div>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
+            <div className="relative aspect-4/3 overflow-hidden rounded-2xl">
               <Image
                 src="/images/dental-implant.jpg"
                 alt="Имплант Medentika"

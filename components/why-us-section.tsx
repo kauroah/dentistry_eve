@@ -54,14 +54,14 @@ export function WhyUsSection() {
               key={feature.title}
               className="group relative overflow-hidden border-0 bg-muted/50"
             >
-              <div className="relative aspect-[4/3] overflow-hidden">
+              <div className="relative aspect-4/3 overflow-hidden">
                 <Image
                   src={feature.image || "/placeholder.svg"}
                   alt={feature.title}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 to-foreground/20" />
+                <div className="absolute inset-0 bg-linear-to-t from-foreground/80 to-foreground/20" />
               </div>
               <CardHeader className="absolute inset-x-0 bottom-0 text-primary-foreground">
                 <CardTitle className="mb-2 text-2xl">{feature.title}</CardTitle>

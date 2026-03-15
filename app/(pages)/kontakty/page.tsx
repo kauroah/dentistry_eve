@@ -14,18 +14,6 @@ export const metadata: Metadata = {
 
 const contactInfo = [
   {
-    icon: MapPin,
-    title: "Адрес (филиал 1)",
-    content: "г. Казань, ул. Назарбаева, 10",
-    description: "Рядом с парком Чёрное Озеро",
-  },
-  {
-    icon: MapPin,
-    title: "Адрес (филиал 2)",
-    content: "г. Казань, ул. Островского, 21",
-    description: "Центр города",
-  },
-  {
     icon: Phone,
     title: "Телефон",
     content: "+7 (843) 277-07-77",
@@ -48,15 +36,36 @@ const contactInfo = [
 ];
 
 export default function ContactPage() {
+  async function handleSubmit(formData: FormData) {
+    "use server";
+
+    const data = {
+      name: formData.get("name"),
+      phone: formData.get("phone"),
+      service: formData.get("service"),
+      comment: formData.get("message"),
+    };
+
+    await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/appointments`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+  }
+
   return (
     <>
-      {/* Hero */}
+      {/* HERO */}
+
       <section className="bg-muted/30 py-12 lg:py-16">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="mb-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+            <h1 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
               Контакты
             </h1>
+
             <p className="text-lg text-muted-foreground">
               Свяжитесь с нами любым удобным способом или запишитесь на приём онлайн
             </p>
@@ -64,124 +73,215 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Contact info + Form */}
+      {/* CONTACT INFO */}
+
       <section className="py-12 lg:py-16">
         <div className="container mx-auto px-4">
+
           <div className="grid gap-8 lg:grid-cols-2">
-            {/* Contact info */}
+
+            {/* CONTACT BLOCKS */}
+
             <div className="grid gap-4 sm:grid-cols-2">
+
               {contactInfo.map((item) => (
                 <Card key={item.title}>
                   <CardHeader className="pb-2">
+
                     <div className="flex items-center gap-3">
+
                       <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
                         <item.icon className="h-5 w-5 text-primary" />
                       </div>
-                      <CardTitle className="text-base">{item.title}</CardTitle>
+
+                      <CardTitle className="text-base">
+                        {item.title}
+                      </CardTitle>
+
                     </div>
+
                   </CardHeader>
+
                   <CardContent>
+
                     {item.href ? (
                       <a
                         href={item.href}
-                        className="block font-medium text-foreground hover:text-primary"
+                        className="block font-medium hover:text-primary"
                       >
                         {item.content}
                       </a>
                     ) : (
-                      <p className="font-medium text-foreground">{item.content}</p>
+                      <p className="font-medium">{item.content}</p>
                     )}
-                    <p className="mt-1 text-sm text-muted-foreground">{item.description}</p>
+
+                    <p className="mt-1 text-sm text-muted-foreground">
+                      {item.description}
+                    </p>
+
                   </CardContent>
+
                 </Card>
               ))}
+
             </div>
 
-            {/* Form */}
+            {/* FORM */}
+
             <Card>
+
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <MessageCircle className="h-5 w-5 text-primary" />
                   Записаться на приём
                 </CardTitle>
               </CardHeader>
+
               <CardContent>
-                <form className="grid gap-4">
+
+                <form action={handleSubmit} className="grid gap-4">
+
                   <div className="grid gap-2">
                     <Label htmlFor="name">Ваше имя</Label>
-                    <Input id="name" placeholder="Иван Иванов" required />
+                    <Input
+                      name="name"
+                      id="name"
+                      placeholder="Иван Иванов"
+                      required
+                    />
                   </div>
+
                   <div className="grid gap-2">
                     <Label htmlFor="phone">Телефон</Label>
-                    <Input id="phone" type="tel" placeholder="+7 (___) ___-__-__" required />
+                    <Input
+                      name="phone"
+                      id="phone"
+                      type="tel"
+                      placeholder="+7 (___) ___-__-__"
+                      required
+                    />
                   </div>
+
                   <div className="grid gap-2">
                     <Label htmlFor="service">Услуга</Label>
-                    <Input id="service" placeholder="Например, лечение кариеса" />
+                    <Input
+                      name="service"
+                      id="service"
+                      placeholder="Например, лечение кариеса"
+                    />
                   </div>
+
                   <div className="grid gap-2">
                     <Label htmlFor="message">Комментарий</Label>
                     <Textarea
+                      name="message"
                       id="message"
-                      placeholder="Опишите вашу проблему или пожелания"
                       rows={3}
+                      placeholder="Опишите вашу проблему"
                     />
                   </div>
+
                   <Button type="submit" className="w-full">
                     Отправить заявку
                   </Button>
-                  <p className="text-center text-xs text-muted-foreground">
-                    Нажимая кнопку, вы соглашаетесь с{" "}
-                    <a href="/privacy" className="underline hover:text-primary">
-                      политикой конфиденциальности
-                    </a>
-                  </p>
+
                 </form>
+
               </CardContent>
+
             </Card>
+
           </div>
         </div>
       </section>
 
-      {/* Map placeholder */}
+      {/* MAPS */}
+
       <section className="border-t border-border">
+
         <div className="container mx-auto px-4 py-12 lg:py-16">
-          <h2 className="mb-6 text-center text-2xl font-bold tracking-tight text-foreground">
+
+          <h2 className="mb-10 text-center text-2xl font-bold">
             Как нас найти
           </h2>
-          <div className="aspect-[16/9] overflow-hidden rounded-xl bg-muted lg:aspect-[21/9]">
-            <div className="flex h-full items-center justify-center text-muted-foreground">
-              <div className="text-center">
-                <MapPin className="mx-auto mb-2 h-12 w-12" />
-                <p className="font-medium">Филиал 1: г. Казань, ул. Назарбаева, 10</p>
-                <p className="font-medium">Филиал 2: г. Казань, ул. Островского, 21</p>
-                <p className="mt-2 text-sm">Центр города</p>
-              </div>
+
+          <div className="grid gap-10 lg:grid-cols-2">
+
+            {/* Branch 1 */}
+
+            <div>
+
+              <h3 className="mb-3 text-lg font-semibold">
+                Филиал 1 — ул. Назарбаева, 10
+              </h3>
+
+              <iframe
+                src="https://yandex.ru/map-widget/v1/?text=Казань%20ул.%20Назарбаева%2010"
+                width="100%"
+                height="320"
+                className="rounded-xl border"
+                loading="lazy"
+              />
+
             </div>
+
+            {/* Branch 2 */}
+
+            <div>
+
+              <h3 className="mb-3 text-lg font-semibold">
+                Филиал 2 — ул. Островского, 21
+              </h3>
+
+              <iframe
+                src="https://yandex.ru/map-widget/v1/?text=Казань%20ул.%20Островского%2021"
+                width="100%"
+                height="320"
+                className="rounded-xl border"
+                loading="lazy"
+              />
+
+            </div>
+
           </div>
+
         </div>
+
       </section>
 
-      {/* Quick contact */}
+      {/* CALL CTA */}
+
       <section className="bg-primary py-12">
+
         <div className="container mx-auto px-4">
+
           <div className="flex flex-col items-center justify-between gap-6 text-center md:flex-row md:text-left">
+
             <div>
+
               <h2 className="text-2xl font-bold text-primary-foreground">
                 Нужна срочная консультация?
               </h2>
+
               <p className="text-primary-foreground/80">
-                Позвоните нам прямо сейчас, мы примем вас в ближайшее время
+                Позвоните нам прямо сейчас
               </p>
+
             </div>
+
             <Button size="lg" variant="secondary" asChild>
+
               <a href="tel:+78432770777" className="gap-2">
                 <Phone className="h-4 w-4" />
                 +7 (843) 277-07-77
               </a>
+
             </Button>
+
           </div>
+
         </div>
+
       </section>
     </>
   );

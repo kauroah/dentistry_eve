@@ -38,20 +38,22 @@ export function AppointmentModal({ children, className }: AppointmentModalProps)
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!agreed) return;
-    
+
     setIsSubmitting(true);
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+
+    const res = await fetch("/api/appointments", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+
     setIsSubmitting(false);
-    setSubmitted(true);
-    
-    // Reset after showing success
-    setTimeout(() => {
-      setOpen(false);
-      setSubmitted(false);
-      setFormData({ name: "", date: "", phone: "+7", email: "", comment: "" });
-      setAgreed(false);
-    }, 2000);
+
+    if (res.ok) {
+      setSubmitted(true);
+    }
   };
 
   const handleChange = (field: string, value: string) => {

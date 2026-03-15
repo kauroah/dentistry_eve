@@ -20,25 +20,41 @@ export const metadata: Metadata = {
 
 const hygieneTypes = [
   {
-    title: "Профессиональная чистка",
-    description: "Комплексная чистка зубов: ультразвук + Air Flow + полировка + фторирование.",
-    price: "от 4 000 ₽",
+    title: "Удаление зубного камня (ультразвук)",
+    description:
+      "Удаление твёрдых зубных отложений ультразвуковым скейлером для профилактики заболеваний дёсен.",
+    price: "от 2 500 ₽",
   },
   {
     title: "Air Flow",
-    description: "Удаление мягкого налёта и пигментации струёй воды с содой.",
+    description:
+      "Удаление мягкого налёта и пигментации струёй воды, воздуха и специального порошка.",
     price: "от 3 500 ₽",
   },
   {
-    title: "Фторирование",
+    title: "Полировка зубов",
+    description:
+      "Полировка поверхности зубов для устранения микрошероховатостей и предотвращения образования налёта.",
+    price: "от 1 500 ₽",
+  },
+  {
+    title: "Фторирование зубов",
     href: "/stomatologiya/gigiena/ftorirovanie",
-    description: "Укрепление эмали фторсодержащими препаратами.",
+    description:
+      "Насыщение эмали фтором для укрепления зубов и снижения чувствительности.",
     price: "от 2 000 ₽",
   },
   {
     title: "Герметизация фиссур",
-    description: "Защита жевательных поверхностей зубов от кариеса.",
+    description:
+      "Запечатывание жевательных борозд у детей и взрослых для профилактики кариеса.",
     price: "от 2 500 ₽",
+  },
+  {
+    title: "Комплексная профессиональная гигиена",
+    description:
+      "Комплексная процедура: ультразвук + Air Flow + полировка + фторирование.",
+    price: "от 4 000 ₽",
   },
 ];
 
@@ -104,7 +120,7 @@ export default function GigienaPage() {
               <div className="mb-6 grid gap-2 sm:grid-cols-2">
                 {benefits.slice(0, 4).map((benefit) => (
                   <div key={benefit} className="flex items-center gap-2">
-                    <CheckCircle className="h-5 w-5 flex-shrink-0 text-primary" />
+                    <CheckCircle className="h-5 w-5 shrink-0 text-primary" />
                     <span className="text-sm text-foreground">{benefit}</span>
                   </div>
                 ))}
@@ -119,7 +135,7 @@ export default function GigienaPage() {
                 </Button>
               </div>
             </div>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
+            <div className="relative aspect-4/3 overflow-hidden rounded-2xl">
               <Image
                 src="/images/dental-treatment.jpg"
                 alt="Профессиональная чистка зубов в клинике Eva Dent Казань"
@@ -138,7 +154,7 @@ export default function GigienaPage() {
           <h2 className="mb-8 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
             Услуги профессиональной гигиены
           </h2>
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {hygieneTypes.map((type) =>
               type.href ? (
                 <Link key={type.title} href={type.href} className="group">
@@ -146,7 +162,7 @@ export default function GigienaPage() {
                     <CardHeader>
                       <div className="flex items-start justify-between">
                         <CardTitle className="text-lg">{type.title}</CardTitle>
-                        <span className="flex-shrink-0 rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
+                        <span className="shrink-0 rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
                           {type.price}
                         </span>
                       </div>
@@ -165,7 +181,7 @@ export default function GigienaPage() {
                   <CardHeader>
                     <div className="flex items-start justify-between">
                       <CardTitle className="text-lg">{type.title}</CardTitle>
-                      <span className="flex-shrink-0 rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
+                      <span className="shrink-0 rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
                         {type.price}
                       </span>
                     </div>

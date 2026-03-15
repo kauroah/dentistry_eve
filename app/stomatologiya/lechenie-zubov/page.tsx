@@ -22,20 +22,44 @@ const subServices = [
   {
     title: "Лечение кариеса",
     href: "/stomatologiya/lechenie-zubov/karies",
-    description: "Лечение кариеса на любой стадии с использованием современных пломбировочных материалов.",
+    description:
+      "Удаление кариозных тканей и восстановление зуба современными пломбировочными материалами.",
     price: "от 3 500 ₽",
   },
   {
-    title: "Лечение каналов",
-    href: "/stomatologiya/lechenie-zubov/kanaly",
-    description: "Эндодонтическое лечение с использованием микроскопа для максимальной точности.",
+    title: "Лечение пульпита",
+    href: "/stomatologiya/lechenie-zubov/pulpit",
+    description:
+      "Эндодонтическое лечение воспалённого нерва зуба с тщательной обработкой каналов.",
     price: "от 5 500 ₽",
   },
   {
-    title: "Лечение дёсен",
-    href: "/stomatologiya/lechenie-zubov/desny",
-    description: "Комплексное лечение заболеваний пародонта: гингивит, пародонтит.",
-    price: "от 4 000 ₽",
+    title: "Лечение периодонтита",
+    href: "/stomatologiya/lechenie-zubov/periodontit",
+    description:
+      "Комплексное лечение воспаления тканей вокруг корня зуба с сохранением зуба.",
+    price: "от 7 000 ₽",
+  },
+  {
+    title: "Лечение корневых каналов",
+    href: "/stomatologiya/lechenie-zubov/kanaly",
+    description:
+      "Точная обработка и пломбирование каналов с использованием современных эндодонтических технологий.",
+    price: "от 5 500 ₽",
+  },
+  {
+    title: "Перелечивание каналов",
+    href: "/stomatologiya/lechenie-zubov/perelichivanie-kanalov",
+    description:
+      "Повторное лечение каналов при некачественном предыдущем лечении.",
+    price: "от 6 500 ₽",
+  },
+  {
+    title: "Художественная реставрация зуба",
+    href: "/stomatologiya/lechenie-zubov/restavraciya",
+    description:
+      "Восстановление формы и цвета зуба композитными материалами.",
+    price: "от 6 000 ₽",
   },
 ];
 

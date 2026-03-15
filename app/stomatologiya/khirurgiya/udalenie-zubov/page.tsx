@@ -31,6 +31,8 @@ const prices = [
   { service: "Сложное удаление зуба", price: "от 5 000 ₽" },
   { service: "Удаление зуба мудрости", price: "от 7 500 ₽" },
   { service: "Удаление ретинированного зуба", price: "от 10 000 ₽" },
+  { service: "Резекция верхушки корня", price: "от 8 000 ₽" },
+  { service: "Пластика уздечки", price: "от 5 000 ₽" },
 ];
 
 const faqs = [
@@ -90,7 +92,7 @@ export default function UdalenieZubovPage() {
               <div className="mb-6 grid gap-2 sm:grid-cols-2">
                 {benefits.slice(0, 4).map((benefit) => (
                   <div key={benefit} className="flex items-center gap-2">
-                    <CheckCircle className="h-5 w-5 flex-shrink-0 text-primary" />
+                    <CheckCircle className="h-5 w-5 shrink-0 text-primary" />
                     <span className="text-sm text-foreground">{benefit}</span>
                   </div>
                 ))}
@@ -105,7 +107,7 @@ export default function UdalenieZubovPage() {
                 </Button>
               </div>
             </div>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
+            <div className="relative aspect-4/3 overflow-hidden rounded-2xl">
               <Image
                 src="/images/dental-treatment.jpg"
                 alt="Удаление зубов в клинике Eva Dent"

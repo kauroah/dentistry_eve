@@ -35,7 +35,7 @@ const faqs = [
   {
     question: "Сколько стоит имплант Straumann?",
     answer:
-      "Стоимость импланта Straumann в нашей клинике начинается от 55 000 рублей. В цену входит сам имплант, операция по установке и все контрольные осмотры. Коронка оплачивается отдельно.",
+      "Стоимость импланта Straumann начинается от 120 000 рублей. В стоимость входит имплант и операция установки. Коронка оплачивается отдельно.",
   },
   {
     question: "Как быстро приживается Straumann?",
@@ -71,7 +71,7 @@ export default function StraumannPage() {
               <h1 className="mb-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
                 Импланты Straumann
               </h1>
-              <p className="mb-2 text-lg font-medium text-primary">Швейцария | от 55 000 ₽</p>
+              <p className="mb-2 text-lg font-medium text-primary">Швейцария | от 120 000 ₽</p>
               <p className="mb-6 text-lg text-muted-foreground">
                 Straumann — премиальные швейцарские импланты с пожизненной гарантией.
                 Золотой стандарт дентальной имплантации с более чем 60-летней историей.
@@ -79,7 +79,7 @@ export default function StraumannPage() {
               <div className="mb-6 grid gap-2 sm:grid-cols-2">
                 {benefits.slice(0, 4).map((benefit) => (
                   <div key={benefit} className="flex items-center gap-2">
-                    <CheckCircle className="h-5 w-5 flex-shrink-0 text-primary" />
+                    <CheckCircle className="h-5 w-5 shrink-0 text-primary" />
                     <span className="text-sm text-foreground">{benefit}</span>
                   </div>
                 ))}
@@ -94,7 +94,7 @@ export default function StraumannPage() {
                 </Button>
               </div>
             </div>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
+            <div className="relative aspect-4/3 overflow-hidden rounded-2xl">
               <Image
                 src="/images/dental-implant.jpg"
                 alt="Имплант Straumann"
