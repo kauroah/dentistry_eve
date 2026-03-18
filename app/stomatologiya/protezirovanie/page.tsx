@@ -20,41 +20,47 @@ export const metadata: Metadata = {
 
 const prostheticTypes = [
   {
-    title: "Металлокерамические коронки",
-    href: "/stomatologiya/protezirovanie/metallokeramika",
-    description: "Прочные и доступные коронки для восстановления жевательных зубов.",
-    price: "от 35 000 ₽",
+    title: "Имплант Антожир (Франция) коронка + имплант - цементная фиксация",
+    description: "Комплексное восстановление зуба: имплант Антожир + коронка с цементной фиксацией",
+    price: "75 000 ₽",
+    category: "Комплексные работы"
   },
   {
-    title: "Циркониевые коронки",
-    href: "/stomatologiya/protezirovanie/tsirkonievaya-koronka",
-    description: "Эстетичные безметалловые коронки из диоксида циркония.",
-    price: "от 17 900 ₽",
+    title: "Имплант системы astra tech с циркониевой коронкой (цементная фиксация)",
+    description: "Комплекс: имплант Astra Tech + циркониевая коронка на цементной фиксации",
+    price: "85 000 ₽",
+    category: "Комплексные работы"
   },
   {
-    title: "Коронка на имплант",
-    href: "/stomatologiya/protezirovanie/koronka-na-implant",
-    description: "Фиксация коронки на имплантате с высокой точностью.",
-    price: "от 40 000 ₽",
+    title: "Коронка мет/керам на имплант DIO (винтовая фиксация)",
+    description: "Металлокерамическая коронка на имплант DIO с винтовой фиксацией",
+    price: "40 000 ₽",  
+    category: "Коронки на имплантах"
   },
   {
-    title: "Бюгельные протезы",
-    href: "/stomatologiya/protezirovanie/byugelnyy-protez",
-    description: "Надёжные частичные съёмные протезы для восстановления зубного ряда.",
-    price: "90 000 ₽",
+    title: "Коронка мет/керам на имплант DIO (стандартный абатмент, цементная фиксация)",
+    description: "Металлокерамическая коронка на имплант DIO со стандартным абатментом, цементная фиксация",
+    price: "35 000 ₽",
+    category: "Коронки на имплантах"
   },
   {
-    title: "Ортопедическая балка",
-    href: "/stomatologiya/protezirovanie/balka",
-    description: "Балочная система протезирования на имплантах.",
-    price: "120 000 ₽",
+    title: "Установка импланта системы Dio c цементной фиксацией коронки",
+    description: "Комплекс: имплант Dio + коронка с цементной фиксацией",
+    price: "39 900 ₽",
+    category: "Комплексные работы"
   },
   {
-    title: "Временная коронка на имплант",
-    href: "/stomatologiya/protezirovanie/vremennaya-koronka",
-    description: "Временное восстановление зуба на период приживления импланта.",
-    price: "20 000 ₽",
+    title: "Цирконевая коронка на имплантате (доплата за материал)",
+    description: "Доплата за циркониевый материал при изготовлении коронки на импланте",
+    price: "12 900 ₽",
+    category: "Коронки на имплантах"
   },
+  {
+    title: "Цирконевая коронка на имплантате (доплата за материал) - премиум",
+    description: "Доплата за циркониевый материал премиум-класса",
+    price: "17 900 ₽",
+    category: "Коронки на имплантах"
+  }
 ];
 
 const benefits = [
@@ -155,7 +161,7 @@ export default function ProtezirovaniePage() {
           </h2>
           <div className="grid gap-6 md:grid-cols-2">
             {prostheticTypes.map((type) => (
-              <Link key={type.title} href={type.href} className="group">
+              <div key={type.title} className="group">
                 <Card className="h-full transition-all hover:shadow-lg">
                   <CardHeader>
                     <div className="flex items-start justify-between">
@@ -166,14 +172,8 @@ export default function ProtezirovaniePage() {
                     </div>
                     <CardDescription>{type.description}</CardDescription>
                   </CardHeader>
-                  <CardContent>
-                    <span className="inline-flex items-center gap-1 text-sm font-medium text-primary">
-                      Подробнее
-                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </span>
-                  </CardContent>
                 </Card>
-              </Link>
+              </div>
             ))}
           </div>
         </div>

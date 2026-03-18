@@ -18,32 +18,296 @@ export const metadata: Metadata = {
     "Хирургическая стоматология в Казани: удаление зубов, зубов мудрости, резекция корня. Безболезненно и безопасно в клинике Eva Dent.",
 };
 
-const surgeryTypes = [
-  {
-    title: "Удаление зубов",
-    href: "/stomatologiya/khirurgiya/udalenie-zubov",
-    description: "Простое и сложное удаление зубов с современной анестезией.",
-    price: "от 2 500 ₽",
-  },
-  {
-    title: "Удаление зуба мудрости",
-    href: "/stomatologiya/khirurgiya/udalenie-zuba-mudrosti",
-    description: "Удаление ретинированных и дистопированных восьмёрок.",
-    price: "от 7 500 ₽",
-  },
-  {
-    title: "Резекция верхушки корня",
-    href: "/stomatologiya/khirurgiya/rezekciya-kornya",
-    description: "Хирургическое удаление кисты или воспаления на корне зуба.",
-    price: "от 8 000 ₽",
-  },
-  {
-    title: "Пластика уздечки",
-    href: "/stomatologiya/khirurgiya/plastika-uzdechki",
-    description: "Коррекция уздечки губы или языка для улучшения функции и дикции.",
-    price: "от 5 000 ₽",
-  },
-];
+// Group surgery services by category
+const surgeryServices = {
+  toothExtraction: [
+    {
+      title: "Удаление зуба",
+      description: "Простое удаление зуба с использованием современной анестезии",
+      price: "4 000 ₽",
+    },
+    {
+      title: "Удаление зуба сложное",
+      description: "Сложное удаление зуба при аномалиях корней или разрушенной коронке",
+      price: "7 000 ₽",
+    },
+    {
+      title: "Удаление зуба атипическое",
+      description: "Атипичное удаление зуба при нестандартном расположении или патологиях",
+      price: "10 000 ₽",
+    },
+    {
+      title: "Удаление молочного зуба",
+      description: "Безболезненное удаление молочного зуба у детей",
+      price: "1 000 ₽",
+    },
+    {
+      title: "Удаление осколка зуба",
+      description: "Удаление осколка зуба после травмы или неполного удаления",
+      price: "1 500 ₽",
+    },
+    {
+      title: "Удаление клинической коронки зуба",
+      description: "Удаление разрушенной коронковой части зуба",
+      price: "3 000 ₽",
+    },
+    {
+      title: "Удаление части коронки зуба",
+      description: "Удаление части коронки зуба по медицинским показаниям",
+      price: "3 000 ₽",
+    },
+    {
+      title: "Ультразвуковое удаление зуба",
+      description: "Удаление зуба с использованием ультразвукового оборудования для меньшей травматичности",
+      price: "10 000 ₽",
+    },
+    {
+      title: "Кюретаж постэкстракционной лунки",
+      description: "Очистка лунки после удаления зуба от остатков тканей",
+      price: "2 000 ₽",
+    },
+    {
+      title: "Лечение альвеолита",
+      description: "Лечение воспаления лунки после удаления зуба",
+      price: "2 000 ₽",
+    },
+    {
+      title: "Лечение с использованием альвожила",
+      description: "Обработка лунки противовоспалительным препаратом Альвожил",
+      price: "1 500 ₽",
+    },
+    {
+      title: "Остановка кровотечения лунки",
+      description: "Процедура по остановке кровотечения из лунки после удаления",
+      price: "500 ₽",
+    },
+  ],
+  wisdomTeeth: [
+    {
+      title: "Удаление ретинированных \"зубов мудрости\"",
+      description: "Удаление непрорезавшихся зубов мудрости",
+      price: "13 000 ₽",
+    },
+    {
+      title: "Удаление полуретинированных \"зубов мудрости\"",
+      description: "Удаление частично прорезавшихся зубов мудрости",
+      price: "10 000 ₽",
+    },
+  ],
+  softTissue: [
+    {
+      title: "Вестибулопластика",
+      description: "Операция по углублению преддверия полости рта",
+      price: "1 500 ₽",
+    },
+    {
+      title: "Френулопластика",
+      description: "Пластика уздечки губы или языка для коррекции прикуса и дикции",
+      price: "10 000 ₽",
+    },
+    {
+      title: "Удаление уздечки языка у новорожденных",
+      description: "Подрезание уздечки языка у новорожденных для нормального вскармливания",
+      price: "7 500 ₽",
+    },
+    {
+      title: "Гингивопластика в области одного сегмента (без стоимости материала)",
+      description: "Коррекция контура десны в области одного сегмента",
+      price: "6 000 ₽",
+    },
+    {
+      title: "Закрытие рецессии методом коронарного смещения лоскута в области 1 зуба",
+      description: "Хирургическое закрытие оголённой шейки зуба",
+      price: "15 000 ₽",
+    },
+    {
+      title: "Рассечение тяжа слизистой оболочки",
+      description: "Иссечение соединительнотканного тяжа слизистой",
+      price: "6 000 ₽",
+    },
+    {
+      title: "Удлинение клинической коронки зуба",
+      description: "Операция по увеличению видимой части коронки зуба",
+      price: "3 000 ₽",
+    },
+    {
+      title: "Коагуляция десневого сосочка, наложение гемостатической губки",
+      description: "Прижигание десневого сосочка с остановкой кровотечения",
+      price: "1 000 ₽",
+    },
+    {
+      title: "Наложение пародонтологической повязки",
+      description: "Защитная повязка на десну после хирургического вмешательства",
+      price: "1 500 ₽",
+    },
+  ],
+  boneGrafting: [
+    {
+      title: "пересадка костного блока",
+      description: "Трансплантация костного блока для наращивания костной ткани",
+      price: "100 000 ₽",
+    },
+    {
+      title: "Пластика альвеолярного отростка с использованием остеопластических материалов",
+      description: "Восстановление объёма альвеолярного отростка с использованием остеопластических материалов",
+      price: "25 000 ₽",
+    },
+    {
+      title: "Применение костной пластики",
+      description: "Процедура костной пластики для подготовки к имплантации",
+      price: "15 000 ₽",
+    },
+    {
+      title: "Использование препарата Неоконес при удалении зуба",
+      description: "Применение остеопластического препарата для сохранения объёма кости после удаления",
+      price: "1 000 ₽",
+    },
+    {
+      title: "Использование винта для фиксации мембран и костных блоков(*1 шт)",
+      description: "Винт для фиксации мембран и костных блоков",
+      price: "7 500 ₽",
+    },
+  ],
+  guidedBoneRegeneration: [
+    {
+      title: "Направленная костная регенерация с использованием Emdogain 0,3",
+      description: "НКР с применением препарата Emdogain 0,3 мл для стимуляции регенерации",
+      price: "35 000 ₽",
+    },
+    {
+      title: "Направленная костная регенерация с использованием Emdogain 0,5",
+      description: "НКР с применением препарата Emdogain 0,5 мл",
+      price: "40 000 ₽",
+    },
+    {
+      title: "Направленная костная регенерация с использованием Emdogain 1гр",
+      description: "НКР с применением препарата Emdogain 1 грамм",
+      price: "30 000 ₽",
+    },
+    {
+      title: "Направленная костная регенерация с использованием Мембраны Goretex без титанового усилителя",
+      description: "НКР с использованием мембраны Goretex для направленной регенерации",
+      price: "35 000 ₽",
+    },
+  ],
+  cystAndTumor: [
+    {
+      title: "Удаление доброкачественной опухоли (фибромы, ретенционной кисты, фиброматоз десен)",
+      description: "Иссечение доброкачественных новообразований полости рта",
+      price: "10 000 ₽",
+    },
+    {
+      title: "Удаление папилломы",
+      description: "Удаление папилломы на слизистой полости рта",
+      price: "1 000 ₽",
+    },
+    {
+      title: "Цистэктомия губы",
+      description: "Удаление кисты на губе",
+      price: "10 000 ₽",
+    },
+    {
+      title: "Резекция верхушки корня (включая все процедуры) однокорневого зуба",
+      description: "Хирургическое удаление верхушки корня с кистой или воспалением",
+      price: "10 000 ₽",
+    },
+  ],
+  extractionProcedures: [
+    {
+      title: "Удаление импланта",
+      description: "Хирургическое удаление ранее установленного импланта",
+      price: "10 000 ₽",
+    },
+    {
+      title: "Удаление экзостоза",
+      description: "Удаление костного выступа (экзостоза) на челюсти",
+      price: "7 000 ₽",
+    },
+    {
+      title: "Извлечение инородного тела",
+      description: "Извлечение инородного тела из мягких или костных тканей полости рта",
+      price: "5 000 ₽",
+    },
+    {
+      title: "Компактостеотомия",
+      description: "Хирургическое рассечение компактного слоя кости",
+      price: "6 500 ₽",
+    },
+  ],
+  abscessAndIncision: [
+    {
+      title: "Вскрытие абсцесса",
+      description: "Вскрытие и дренирование гнойного абсцесса в полости рта",
+      price: "5 000 ₽",
+    },
+    {
+      title: "Внутриротовые разрезы с дренированием",
+      description: "Разрез мягких тканей с установкой дренажа для оттока гноя",
+      price: "7 000 ₽",
+    },
+  ],
+  sinusAndPerforation: [
+    {
+      title: "Пластика перфорации верхнечелюстной пазухи",
+      description: "Закрытие перфорации (отверстия) гайморовой пазухи",
+      price: "10 000 ₽",
+    },
+    {
+      title: "Ушивание соустья гайморовой пазухи",
+      description: "Закрытие патологического соустья с гайморовой пазухой",
+      price: "10 000 ₽",
+    },
+  ],
+  suturesAndDressings: [
+    {
+      title: "Наложение швов викрилом (1 уп)",
+      description: "Наложение швов рассасывающимся материалом Викрил",
+      price: "1 500 ₽",
+    },
+    {
+      title: "Наложение швов кетгутом",
+      description: "Наложение швов рассасывающимся материалом Кетгут",
+      price: "1 500 ₽",
+    },
+    {
+      title: "Наложение швов ПГА",
+      description: "Наложение швов рассасывающимся материалом ПГА",
+      price: "2 000 ₽",
+    },
+    {
+      title: "Снятие швов",
+      description: "Снятие послеоперационных швов",
+      price: "500 ₽",
+    },
+    {
+      title: "Перевязка после удаления (без анестезии)",
+      description: "Послеоперационная перевязка после удаления зуба",
+      price: "1 000 ₽",
+    },
+    {
+      title: "Перевязка раны в полости рта",
+      description: "Обработка и перевязка послеоперационной раны",
+      price: "1 000 ₽",
+    },
+  ],
+  anesthesiaAndSplinting: [
+    {
+      title: "Анестезия проводниковая",
+      description: "Проводниковая анестезия для обезболивания области лечения",
+      price: "2 500 ₽",
+    },
+    {
+      title: "Шинирование при переломе альвеолярного отростка в области 2х зубов",
+      description: "Фиксация отломков при переломе альвеолярного отростка",
+      price: "30 000 ₽",
+    },
+    {
+      title: "Снятие шины 1 челюсть",
+      description: "Снятие шинирующей конструкции с одной челюсти",
+      price: "7 000 ₽",
+    },
+  ],
+};
 
 const benefits = [
   "Безболезненные операции",
@@ -81,6 +345,21 @@ const faqs = [
       "Плановое удаление лучше отложить. При острой необходимости удаление возможно во втором триместре с использованием безопасных анестетиков. Обязательно сообщите врачу о беременности.",
   },
 ];
+
+// Category titles in Russian
+const categoryTitles = {
+  toothExtraction: "Удаление зубов",
+  wisdomTeeth: "Удаление зубов мудрости",
+  softTissue: "Пластика мягких тканей",
+  boneGrafting: "Костная пластика",
+  guidedBoneRegeneration: "Направленная костная регенерация",
+  cystAndTumor: "Удаление кист и новообразований",
+  extractionProcedures: "Удаление имплантов и экзостозов",
+  abscessAndIncision: "Вскрытие абсцессов и разрезов",
+  sinusAndPerforation: "Операции на пазухах",
+  suturesAndDressings: "Швы и перевязки",
+  anesthesiaAndSplinting: "Анестезия и шинирование",
+};
 
 export default function KhirurgiyaPage() {
   return (
@@ -135,48 +414,42 @@ export default function KhirurgiyaPage() {
         </div>
       </section>
 
-      {/* Surgery types */}
+      {/* Surgery Services by Category */}
       <section className="py-12 lg:py-16">
         <div className="container mx-auto px-4">
           <h2 className="mb-8 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-            Виды хирургических услуг
+            Хирургия 
           </h2>
-          <div className="grid gap-6 md:grid-cols-2">
-            {surgeryTypes.map((type) =>
-              type.href ? (
-                <Link key={type.title} href={type.href} className="group">
-                  <Card className="h-full transition-all hover:shadow-lg">
-                    <CardHeader>
-                      <div className="flex items-start justify-between">
-                        <CardTitle className="text-lg">{type.title}</CardTitle>
-                        <span className="shrink-0 rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
-                          {type.price}
-                        </span>
-                      </div>
-                      <CardDescription>{type.description}</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <span className="inline-flex items-center gap-1 text-sm font-medium text-primary">
-                        Подробнее
-                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                      </span>
-                    </CardContent>
-                  </Card>
-                </Link>
-              ) : (
-                <Card key={type.title} className="h-full">
-                  <CardHeader>
-                    <div className="flex items-start justify-between">
-                      <CardTitle className="text-lg">{type.title}</CardTitle>
-                      <span className="shrink-0 rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
-                        {type.price}
-                      </span>
-                    </div>
-                    <CardDescription>{type.description}</CardDescription>
-                  </CardHeader>
-                </Card>
-              )
-            )}
+          
+          {Object.entries(surgeryServices).map(([categoryKey, services]) => (
+            <div key={categoryKey} className="mb-12 last:mb-0">
+              <h3 className="mb-6 text-xl font-semibold text-foreground border-b pb-2">
+                {categoryTitles[categoryKey as keyof typeof categoryTitles]}
+              </h3>
+              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {services.map((service) => (
+                  <div key={service.title} className="group">
+                    <Card className="h-full transition-all hover:shadow-lg">
+                      <CardHeader>
+                        <div className="flex items-start justify-between">
+                          <CardTitle className="text-base line-clamp-2">{service.title}</CardTitle>
+                          <span className="shrink-0 rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary ml-2 whitespace-nowrap">
+                            {service.price}
+                          </span>
+                        </div>
+                        <CardDescription className="line-clamp-3 text-sm">
+                          {service.description}
+                        </CardDescription>
+                      </CardHeader>
+                    </Card>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+          
+          <div className="mt-8 text-center text-sm text-muted-foreground">
+            <p>Точную стоимость лечения можно узнать на консультации у хирурга</p>
           </div>
         </div>
       </section>

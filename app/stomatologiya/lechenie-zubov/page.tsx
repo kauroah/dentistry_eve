@@ -172,12 +172,6 @@ export default function LechenieZubovPage() {
                     </div>
                     <CardDescription>{service.description}</CardDescription>
                   </CardHeader>
-                  <CardContent>
-                    <span className="inline-flex items-center gap-1 text-sm font-medium text-primary">
-                      Подробнее
-                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </span>
-                  </CardContent>
                 </Card>
               </Link>
             ))}

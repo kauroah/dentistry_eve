@@ -5,18 +5,16 @@ import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, Phone, Clock, MapPin, ChevronDown } from "lucide-react";
+import { Menu, Phone, Clock, MapPin, ChevronDown, Search } from "lucide-react";
 import { AppointmentModal } from "@/components/appointment-modal";
 import { EvaDentLogo } from "@/public/logo/eva-dent-logo";
-
-/* ================= HEADER ================= */
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const pathname = usePathname();
 
-  // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
@@ -25,7 +23,6 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu on route change
   useEffect(() => {
     setIsOpen(false);
   }, [pathname]);
@@ -39,8 +36,9 @@ export function Header() {
         { name: "Лечение зубов", href: "/stomatologiya/lechenie-zubov" },
         { name: "Имплантация", href: "/stomatologiya/implantatsiya" },
         { name: "Протезирование", href: "/stomatologiya/protezirovanie" },
-        { name: "Ортодонтия", href: "/stomatologiya/ortodontiya" },
+        { name: "Ортодонтия", href: "/stomatologiya/brekety" },
         { name: "Хирургия", href: "/stomatologiya/khirurgiya" },
+        { name: "Ортопедия", href: "/stomatologiya/ortapedia" },
         { name: "Все услуги", href: "/stomatologiya/tseny" },
       ]
     },
@@ -57,35 +55,81 @@ export function Header() {
 
   return (
     <>
-      {/* TOP BAR - Contact Info for SEO */}
+      {/* TOP BAR - Enhanced with schema.org markup */}
       <div className="bg-primary/5 text-sm py-2 border-b border-border hidden md:block">
         <div className="container mx-auto px-4">
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center" itemScope itemType="https://schema.org/Dentist">
             <div className="flex items-center gap-6">
-              <div className="flex items-center gap-2 text-muted-foreground">
+              <meta itemProp="name" content="Eva Dent Стоматология" />
+              <meta itemProp="priceRange" content="₽₽" />
+              
+              <div className="flex items-center gap-2 text-muted-foreground" itemProp="openingHours" content="Mo-Sa 09:00-21:00">
                 <Clock className="h-4 w-4 text-primary" />
                 <span>Ежедневно 09:00 – 21:00</span>
               </div>
-              <div className="flex items-center gap-2 text-muted-foreground">
-                <MapPin className="h-4 w-4 text-primary" />
-                <span>г. Казань, ул. Назарбаева, 10</span>
+              
+              <div itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
+                <meta itemProp="addressLocality" content="Казань" />
+                <meta itemProp="addressRegion" content="Татарстан" />
+                <meta itemProp="addressCountry" content="RU" />
+                
+                <div className="flex items-center gap-2 text-muted-foreground">
+                  <MapPin className="h-4 w-4 text-primary" />
+                  <span itemProp="streetAddress">ул. Назарбаева, 10</span>
+                </div>
               </div>
+              
               <div className="flex items-center gap-2 text-muted-foreground">
                 <MapPin className="h-4 w-4 text-primary" />
-                <span>г. Казань, ул. Островского, 21</span>
+                <span>ул. Островского, 21</span>
               </div>
             </div>
+            
             <div className="flex items-center gap-4">
-              <a 
-                href="mailto:info@evadent.ru" 
+              <span itemProp="email">
+                <a 
+                  href="mailto:info@evadent.ru" 
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  info@evadent.ru
+                </a>
+              </span>
+              
+              {/* Search toggle for larger screens */}
+              <button 
+                onClick={() => setIsSearchOpen(!isSearchOpen)}
                 className="text-muted-foreground hover:text-primary transition-colors"
+                aria-label="Поиск"
               >
-                info@evadent.ru
-              </a>
+                <Search className="h-4 w-4" />
+              </button>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Search Bar (conditionally shown) */}
+      {isSearchOpen && (
+        <div className="bg-background border-b border-border py-4">
+          <div className="container mx-auto px-4">
+            <form action="/search" method="GET" className="relative">
+              <input
+                type="text"
+                name="q"
+                placeholder="Поиск услуг, врачей, информации..."
+                className="w-full rounded-full border border-border bg-muted/50 px-6 py-3 pr-12 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20"
+                aria-label="Поиск по сайту"
+              />
+              <button 
+                type="submit"
+                className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-primary p-2 text-primary-foreground"
+              >
+                <Search className="h-4 w-4" />
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
 
       {/* MAIN HEADER */}
       <header 
@@ -95,7 +139,6 @@ export function Header() {
       >
         <div className="container mx-auto px-4">
           <div className="flex h-20 items-center justify-between">
-
             {/* LOGO with structured data */}
             <Link 
               href="/" 
@@ -118,12 +161,14 @@ export function Header() {
                             ? "text-primary bg-primary/10" 
                             : "text-foreground hover:text-primary hover:bg-primary/5"
                         }`}
+                        aria-expanded="false"
+                        aria-haspopup="true"
                       >
                         {item.name}
                         <ChevronDown className="h-4 w-4 transition-transform group-hover:rotate-180" />
                       </button>
                       <div className="absolute top-full left-0 mt-1 w-64 bg-background border border-border rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                        <div className="py-2">
+                        <div className="py-2" role="menu">
                           {item.children.map((child) => (
                             <Link
                               key={child.href}
@@ -131,6 +176,7 @@ export function Header() {
                               className={`block px-4 py-2 text-sm hover:bg-primary/5 hover:text-primary transition-colors ${
                                 isActive(child.href) ? "text-primary bg-primary/10" : "text-muted-foreground"
                               }`}
+                              role="menuitem"
                             >
                               {child.name}
                             </Link>
@@ -146,6 +192,7 @@ export function Header() {
                           ? "text-primary bg-primary/10" 
                           : "text-foreground hover:text-primary hover:bg-primary/5"
                       }`}
+                      aria-current={isActive(item.href) ? "page" : undefined}
                     >
                       {item.name}
                     </Link>
@@ -156,7 +203,6 @@ export function Header() {
 
             {/* RIGHT SIDE */}
             <div className="flex items-center gap-4">
-
               {/* PHONE with microdata */}
               <div className="hidden md:flex items-center gap-2" itemScope itemType="https://schema.org/ContactPoint">
                 <meta itemProp="contactType" content="customer service" />
@@ -182,7 +228,7 @@ export function Header() {
                 </Button>
               </AppointmentModal>
 
-              {/* MOBILE MENU */}
+              {/* Mobile menu button */}
               <Sheet open={isOpen} onOpenChange={setIsOpen}>
                 <SheetTrigger asChild className="lg:hidden">
                   <Button 
@@ -197,7 +243,6 @@ export function Header() {
 
                 <SheetContent side="right" className="w-75 sm:w-100 p-0">
                   <div className="flex flex-col h-full">
-                    
                     {/* Mobile Header */}
                     <div className="p-6 border-b">
                       <EvaDentLogo className="h-8 w-auto" color="#2563EB" />
@@ -257,7 +302,11 @@ export function Header() {
                         </div>
                         <div className="flex items-center gap-2 text-sm">
                           <MapPin className="h-4 w-4 text-primary" />
-                          <span className="text-muted-foreground">г. Казань, ул. Баумана, 123</span>
+                          <span className="text-muted-foreground">г. Казань, ул. Назарбаева, 10</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-sm">
+                          <MapPin className="h-4 w-4 text-primary" />
+                          <span className="text-muted-foreground">г. Казань, ул. Островского, 21</span>
                         </div>
                         <a 
                           href="tel:+78432770777" 

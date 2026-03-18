@@ -8,6 +8,7 @@ const services = [
   { title: "Протезирование", href: "/stomatologiya/protezirovanie" },
   { title: "Ортодонтия", href: "/stomatologiya/brekety" },
   { title: "Хирургия", href: "/stomatologiya/khirurgiya" },
+  { title: "Ортопедия", href: "/stomatologiya/ortapedia" },
   { title: "Гигиена", href: "/stomatologiya/gigiena" },
 ];
 

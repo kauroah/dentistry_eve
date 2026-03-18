@@ -139,10 +139,6 @@ export function ServicesSection() {
                 <CardContent className="p-6">
                   <h3 className="mb-2 text-xl font-semibold text-foreground">{service.title}</h3>
                   <p className="mb-4 text-muted-foreground">{service.description}</p>
-                  <span className="inline-flex items-center gap-2 text-sm font-medium text-primary transition-colors group-hover:text-primary/80">
-                    Подробнее
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </span>
                 </CardContent>
               </Card>
             </Link>

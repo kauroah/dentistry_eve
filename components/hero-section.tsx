@@ -13,6 +13,7 @@ const slides = [
     subtitle: "Современная стоматология в Казани",
     title: "Eva Dent",
     description: "Многопрофильная стоматологическая клиника с индивидуальным подходом к каждому пациенту",
+    alt: "Интерьер стоматологической клиники Eva Dent в Казани",
   },
   {
     id: 2,
@@ -20,6 +21,7 @@ const slides = [
     subtitle: "Комфорт и безопасность",
     title: "Eva Dent",
     description: "Современное оборудование и передовые технологии для вашего здоровья",
+    alt: "Современное стоматологическое оборудование в клинике Eva Dent",
   },
   {
     id: 3,
@@ -27,22 +29,15 @@ const slides = [
     subtitle: "Профессиональная помощь",
     title: "Eva Dent",
     description: "Опытные специалисты помогут сохранить здоровье ваших зубов на долгие годы",
+    alt: "Процесс лечения зубов в клинике Eva Dent Казань",
   },
   {
     id: 4,
     image: "https://avatars.mds.yandex.net/get-altay/216588/2a0000015b17fb7ff276bbec428c35d3b43c/XXXL",
-    subtitle: "Профессиональная каманда",
+    subtitle: "Профессиональная команда",
     title: "Eva Dent",
     description: "Опытные специалисты помогут сохранить здоровье ваших зубов на долгие годы",
-  },
-];
-
-const quickActions = [
-  {
-    icon: MapPin,
-    title: "Виртуальный",
-    subtitle: "тур по клинике",
-    description: "Казань, ул. Пушкина, 52",
+    alt: "Команда стоматологов клиники Eva Dent в Казани",
   },
 ];
 
@@ -63,18 +58,21 @@ export function HeroSection() {
   }, [nextSlide]);
 
   return (
-    <section className="relative h-150 overflow-hidden bg-foreground lg:h-175">
-      {/* Slides */}
+    <section className="relative h-150 lg:h-175 overflow-hidden bg-foreground">
+      {/* Slides with structured data */}
       {slides.map((slide, index) => (
         <div
           key={slide.id}
           className={`absolute inset-0 transition-opacity duration-1000 ${
             index === currentSlide ? "opacity-100" : "opacity-0"
           }`}
+          itemScope
+          itemType="https://schema.org/ImageObject"
         >
+          <meta itemProp="caption" content={slide.alt} />
           <Image
             src={slide.image || "/placeholder.svg"}
-            alt={slide.title}
+            alt={slide.alt}
             fill
             className="object-cover"
             priority={index === 0}
@@ -83,7 +81,7 @@ export function HeroSection() {
         </div>
       ))}
 
-      {/* Content */}
+      {/* Content with structured data */}
       <div className="container relative mx-auto h-full px-4">
         <div className="flex h-full items-center">
           <div className="grid h-full w-full grid-cols-1 items-center gap-8 lg:grid-cols-12">
@@ -101,7 +99,7 @@ export function HeroSection() {
                 </p>
               </div>
 
-              {/* Slide navigation */}
+              {/* Slide navigation with ARIA labels */}
               <div className="flex items-center gap-4">
                 <button
                   onClick={prevSlide}
@@ -117,7 +115,7 @@ export function HeroSection() {
                 >
                   <ChevronRight className="h-6 w-6" />
                 </button>
-                <div className="ml-4 flex items-center gap-2">
+                <div className="ml-4 flex items-center gap-2" role="tablist" aria-label="Слайды">
                   {slides.map((_, index) => (
                     <button
                       key={index}
@@ -128,6 +126,8 @@ export function HeroSection() {
                           : "w-2 bg-primary-foreground/40 hover:bg-primary-foreground/60"
                       }`}
                       aria-label={`Перейти к слайду ${index + 1}`}
+                      role="tab"
+                      aria-selected={index === currentSlide}
                     />
                   ))}
                 </div>
