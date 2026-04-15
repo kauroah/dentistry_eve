@@ -76,13 +76,13 @@ export default function ReviewsClient() {
   const [reviews, setReviews] = useState<Review[]>([]);
 
   useEffect(() => {
-    fetch("/api/reviews")
+    fetch("https://admin-ten-zeta-51.vercel.app/api/review")
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, []);
 
   async function handleSubmit(review: any) {
-    const res = await fetch("/api/reviews", {
+    const res = await fetch("https://admin-ten-zeta-51.vercel.app/api/review", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -91,7 +91,7 @@ export default function ReviewsClient() {
     });
 
     if (res.ok) {
-      const updated = await fetch("/api/reviews").then((r) => r.json());
+      const updated = await fetch("https://admin-ten-zeta-51.vercel.app/api/reviews").then((r) => r.json());
       setReviews(updated);
     }
   }
