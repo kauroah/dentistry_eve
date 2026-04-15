@@ -3,10 +3,14 @@ import { notFound } from "next/navigation";
 import { Doctor, doctors } from "@/data/doctors";
 import { Button } from "@/components/ui/button";
 import { AppointmentModal } from "@/components/appointment-modal";
-import { ScrollToTop } from "@/components/ui/scroll-to-top"; // Import the new component
+import { ScrollToTop } from "@/components/ui/scroll-to-top";
 import type { Metadata } from "next";
 
-// ... (rest of your imports and types remain the same)
+export function generateStaticParams() {
+  return doctors.map((doctor) => ({
+    slug: doctor.slug,
+  }));
+}
 
 export default async function DoctorPage({
   params,

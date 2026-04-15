@@ -37,7 +37,7 @@ export const doctors = [
     "Лингвальные брекеты",
     "Самолигирующие брекеты"
   ],
-  image: "https://eva-dent.com/wp-content/uploads/2021/03/allush1.jpg"
+  image: "/images/doctors/allush1.jpg"
 },
 
 {
@@ -75,7 +75,7 @@ export const doctors = [
     "Костная пластика",
     "Синус-лифтинг"
   ],
-  image: "https://eva-dent.com/wp-content/uploads/2021/03/allush2.jpg"
+  image: "/images/doctors/allush2.jpg"
 },
 
 {
@@ -110,7 +110,7 @@ export const doctors = [
     "Виниры",
     "Лечение зубов"
   ],
-  image: "https://eva-dent.com/wp-content/uploads/2021/03/15_vafa-min.jpg"
+  image: "/images/doctors/15_vafa-min.jpg"
 },
 
 {
@@ -144,7 +144,7 @@ export const doctors = [
     "Эндодонтия",
     "Реставрация зубов"
   ],
-  image: "https://eva-dent.com/wp-content/uploads/2021/03/16040893_maruseva-evgeniya-sergeevna-_result__-min-min.jpg"
+  image: "/images/doctors/evgeniya-sergeevna.jpg"
 },
 
 {
@@ -175,7 +175,7 @@ export const doctors = [
     "Реставрация зубов",
     "Профессиональная гигиена"
   ],
-  image: "https://eva-dent.com/wp-content/uploads/2025/04/iso.webp"
+  image: "/images/doctors/iso.webp"
 },
 
 {
@@ -203,7 +203,7 @@ export const doctors = [
     "Лечение зубов",
     "Профилактика заболеваний зубов"
   ],
-  image: "https://eva-dent.com/wp-content/uploads/2025/08/Ravil-Faritovich-Nuriev.webp"
+  image: "/images/doctors/Ravil-Faritovich-Nuriev.webp"
 },
 
 {
@@ -234,8 +234,7 @@ export const doctors = [
     "Виниры",
     "Протезирование зубов"
   ],
-  image: "https://eva-dent.com/wp-content/uploads/2021/01/tamer.webp"
-}
+  image: "/images/doctors/tamer.webp"}
 ]
 
 export type Doctor = {
