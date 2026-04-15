@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/accordion";
 import { CTASection } from "@/components/cta-section";
 import { CheckCircle, ArrowRight } from "lucide-react";
+import { AppointmentModal } from "@/components/appointment-modal";
 
 export const metadata: Metadata = {
   title: "Ортопедическая стоматология в Казани — Коронки, протезы | Eva Dent",
@@ -51,7 +52,7 @@ const orthopedicsServices = {
       description: "Керамическая коронка на импланте с каркасом из диоксида циркония, винтовая фиксация",
       price: "60 000 ₽",
     },
-    {
+    /*{
       title: "Керамическая коронка, каркас диоксид циркония на импланте",
       description: "Керамическая коронка на импланте с каркасом из диоксида циркония",
       price: "50 000 ₽",
@@ -457,7 +458,7 @@ const orthopedicsServices = {
       title: "Избирательное пришлифовывание",
       description: "Избирательное пришлифовывание зубов для коррекции прикуса",
       price: "4 000 ₽",
-    },
+    },*/
   ],
 };
 
@@ -532,10 +533,13 @@ export default function OrtopediyaPage() {
               <h1 className="mb-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
                 Ортопедическая стоматология в Казани
               </h1>
-              <p className="mb-6 text-lg text-muted-foreground">
-                Восстановление зубов с помощью коронок, мостов и протезов в клинике Eva Dent.
-                Современные материалы, точное прилегание, естественный внешний вид.
-              </p>
+                <p className="mb-6 text-lg text-muted-foreground">
+                  Комплексное восстановление целостности и функции зубного ряда в клинике Eva Dent. 
+                  Мы специализируемся на ортопедической стоматологии: от изготовления одиночных 
+                  коронок до полного протезирования на имплантатах и съемных конструкциях. 
+                  Использование CAD/CAM технологий и премиальных материалов гарантирует 
+                  анатомически точное прилегание, долговечность и безупречную естественную эстетику.
+                </p>
               <div className="mb-6 grid gap-2 sm:grid-cols-2">
                 {benefits.slice(0, 4).map((benefit) => (
                   <div key={benefit} className="flex items-center gap-2">
@@ -545,10 +549,14 @@ export default function OrtopediyaPage() {
                 ))}
               </div>
               <div className="flex flex-col gap-3 sm:flex-row">
-                <Button size="lg" className="gap-2">
-                  Записаться на консультацию
-                  <ArrowRight className="h-4 w-4" />
+              <AppointmentModal>
+                <Button 
+                  size="lg" 
+                  className="hidden sm:inline-flex rounded-full px-6 bg-primary hover:bg-primary/90 transition-all hover:scale-105 active:scale-95"
+                >
+                  Записаться на приём
                 </Button>
+              </AppointmentModal>
                 <Button size="lg" variant="outline" asChild>
                   <Link href="/stomatologiya/tseny">Узнать цены</Link>
                 </Button>
@@ -556,7 +564,7 @@ export default function OrtopediyaPage() {
             </div>
             <div className="relative aspect-4/3 overflow-hidden rounded-2xl">
               <Image
-                src="/images/dental-prosthetics.jpg"
+                src="/images/ortopage.JPG"
                 alt="Ортопедическая стоматология в клинике Eva Dent Казань"
                 fill
                 className="object-cover"
@@ -571,7 +579,7 @@ export default function OrtopediyaPage() {
       <section className="py-12 lg:py-16">
         <div className="container mx-auto px-4">
           <h2 className="mb-8 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-            Ортопедия — полный прайс-лист
+            Ортопедия 
           </h2>
           
           {Object.entries(orthopedicsServices).map(([categoryKey, services]) => (
@@ -612,7 +620,7 @@ export default function OrtopediyaPage() {
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-3xl">
             <h2 className="mb-6 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-              Протезирование в клинике Eva Dent
+              Ортобедия в клинике Eva Dent
             </h2>
             <div className="prose prose-lg max-w-none text-muted-foreground">
               <p>

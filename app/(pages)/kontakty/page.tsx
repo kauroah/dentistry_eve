@@ -30,7 +30,7 @@ const contactInfo = [
   {
     icon: Clock,
     title: "Часы работы",
-    content: "Пн-Сб: 9:00 - 20:00",
+    content: "Пн-Сб: 8:00 - 20:00",
     description: "Воскресенье — выходной",
   },
 ];
@@ -230,7 +230,7 @@ export default function ContactPage() {
             <div>
 
               <h3 className="mb-3 text-lg font-semibold">
-                Филиал 2 — ул. Островского, 21
+                Филиал 2 — ул. Островского, 21/8
               </h3>
 
               <iframe

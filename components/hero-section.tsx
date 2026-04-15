@@ -7,33 +7,26 @@ import { useState, useEffect, useCallback } from "react";
 import { AppointmentModal } from "@/components/appointment-modal";
 
 const slides = [
+
   {
     id: 1,
-    image: "/images/hero-dental.jpg",
-    subtitle: "Современная стоматология в Казани",
-    title: "Eva Dent",
-    description: "Многопрофильная стоматологическая клиника с индивидуальным подходом к каждому пациенту",
-    alt: "Интерьер стоматологической клиники Eva Dent в Казани",
-  },
-  {
-    id: 2,
-    image: "/images/clinic-interior.jpg",
+    image: "/images/evadent.png",
     subtitle: "Комфорт и безопасность",
     title: "Eva Dent",
     description: "Современное оборудование и передовые технологии для вашего здоровья",
     alt: "Современное стоматологическое оборудование в клинике Eva Dent",
   },
   {
-    id: 3,
-    image: "/images/dental-treatment.jpg",
-    subtitle: "Профессиональная помощь",
+    id: 2,
+    image: "/images/tools.JPG",
+    subtitle: "Современная стоматология в Казани",
     title: "Eva Dent",
-    description: "Опытные специалисты помогут сохранить здоровье ваших зубов на долгие годы",
-    alt: "Процесс лечения зубов в клинике Eva Dent Казань",
+    description: "Многопрофильная стоматологическая клиника с индивидуальным подходом к каждому пациенту",
+    alt: "Интерьер стоматологической клиники Eva Dent в Казани",
   },
-  {
-    id: 4,
-    image: "https://avatars.mds.yandex.net/get-altay/216588/2a0000015b17fb7ff276bbec428c35d3b43c/XXXL",
+    {
+    id: 3,
+    image: "/images/mayaclinic.JPG",
     subtitle: "Профессиональная команда",
     title: "Eva Dent",
     description: "Опытные специалисты помогут сохранить здоровье ваших зубов на долгие годы",

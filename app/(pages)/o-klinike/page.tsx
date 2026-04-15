@@ -72,9 +72,9 @@ export default function AboutPage() {
                 к каждому пациенту.
               </p>
             </div>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
+            <div className="relative aspect-4/3 overflow-hidden rounded-2xl">
               <Image
-                src="/images/hero-dental.jpg"
+                src="/images/community.JPG"
                 alt="Интерьер клиники Eva Dent"
                 fill
                 className="object-cover"

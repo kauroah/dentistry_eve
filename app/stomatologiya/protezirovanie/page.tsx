@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/accordion";
 import { CTASection } from "@/components/cta-section";
 import { CheckCircle, ArrowRight } from "lucide-react";
+import { AppointmentModal } from "@/components/appointment-modal";
 
 export const metadata: Metadata = {
   title: "Протезирование зубов в Казани — Виниры, коронки | Eva Dent",
@@ -49,7 +50,7 @@ const prostheticTypes = [
     price: "39 900 ₽",
     category: "Комплексные работы"
   },
-  {
+  /*{
     title: "Цирконевая коронка на имплантате (доплата за материал)",
     description: "Доплата за циркониевый материал при изготовлении коронки на импланте",
     price: "12 900 ₽",
@@ -60,7 +61,7 @@ const prostheticTypes = [
     description: "Доплата за циркониевый материал премиум-класса",
     price: "17 900 ₽",
     category: "Коронки на имплантах"
-  }
+  }*/
 ];
 
 const benefits = [
@@ -131,10 +132,14 @@ export default function ProtezirovaniePage() {
                 ))}
               </div>
               <div className="flex flex-col gap-3 sm:flex-row">
-                <Button size="lg" className="gap-2">
-                  Записаться на консультацию
-                  <ArrowRight className="h-4 w-4" />
+              <AppointmentModal>
+                <Button 
+                  size="lg" 
+                  className="hidden sm:inline-flex rounded-full px-6 bg-primary hover:bg-primary/90 transition-all hover:scale-105 active:scale-95"
+                >
+                  Записаться на приём
                 </Button>
+              </AppointmentModal>
                 <Button size="lg" variant="outline" asChild>
                   <Link href="/stomatologiya/tseny">Узнать цены</Link>
                 </Button>
@@ -142,7 +147,7 @@ export default function ProtezirovaniePage() {
             </div>
             <div className="relative aspect-4/3 overflow-hidden rounded-2xl">
               <Image
-                src="/images/dental-treatment.jpg"
+                src="/images/proteeth.JPG"
                 alt="Протезирование зубов в клинике Eva Dent Казань"
                 fill
                 className="object-cover"

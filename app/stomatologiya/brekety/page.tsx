@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 // Group services by category
 const orthodonticServices = {
-  consultation: [
+ /* consultation: [
     {
       title: "Консультация ортодонта",
       description: "Первичный осмотр врача-ортодонта, диагностика прикуса и составление плана лечения.",
@@ -41,7 +41,7 @@ const orthodonticServices = {
       description: "Снятие силиконового слепка и диагностическая фотосъемка",
       price: "4 000 ₽"
     },
-  ],
+  ],*/
   bracketSystems: [
     {
       title: "Металлическая брекет-система",
@@ -73,7 +73,7 @@ const orthodonticServices = {
       description: "Керамические самолигирующие брекеты по технике Roth",
       price: "150 000 ₽"
     },
-    {
+  /*  {
       title: "Безлигатурные метал. брекеты \"In-Ovation-R\" техники Roth",
       description: "Металлические самолигирующие брекеты по технике Roth",
       price: "150 000 ₽"
@@ -344,7 +344,7 @@ const orthodonticServices = {
       title: "Средство личной гигиены (зубная щетка)",
       description: "Специализированная зубная щетка для ухода за брекетами",
       price: "1 000 ₽"
-    },
+    },*/
   ],
 };
 
@@ -439,7 +439,7 @@ export default function BreketyPage() {
             </div>
             <div className="relative aspect-4/3 overflow-hidden rounded-2xl">
               <Image
-                src="/images/dental-braces.jpg"
+                src="/images/bracespage.JPG"
                 alt="Брекеты и ортодонтия в клинике Eva Dent Казань"
                 fill
                 className="object-cover"

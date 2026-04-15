@@ -10,15 +10,15 @@ const features = [
     description:
       "Eva Dent — это забота о здоровье на каждом этапе жизни. Мы предлагаем широкий спектр стоматологических услуг, от профилактических осмотров до сложных операций.",
     href: "/o-klinike",
-    image: "/images/clinic-interior.jpg",
-  },
+    image: "/images/address.JPG",
+    },
   {
     icon: Sparkles,
     title: "Современное оборудование",
     description:
       "Используем передовое оборудование и технологии для точной диагностики и безболезненного лечения. Качество и комфорт — наши приоритеты.",
     href: "/o-klinike",
-    image: "/images/dental-treatment.jpg",
+    image: "/images/tool.JPG",
   },
   {
     icon: Heart,
@@ -26,7 +26,7 @@ const features = [
     description:
       "Индивидуальный подход к каждому пациенту. Мы создаём комфортную атмосферу и обеспечиваем поддержку на всех этапах лечения.",
     href: "/kontakty",
-    image: "/images/hero-dental.jpg",
+    image: "/images/care.JPG",
   },
 ];
 

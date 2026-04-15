@@ -1,112 +1,64 @@
 "use client";
 
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { Checkbox } from "@/components/ui/checkbox";
+import { Star, Users, Award, Shield } from "lucide-react";
 
 export function CTASection() {
-  const [agreed, setAgreed] = useState(false);
+  const stats = [
+    { 
+      icon: Users, 
+      value: "10 000+", 
+      label: "Довольных пациентов",
+      color: "text-blue-500"
+    },
+    { 
+      icon: Star, 
+      value: "4.9", 
+      label: "Рейтинг на Яндекс.Картах",
+      color: "text-yellow-500"
+    },
+    { 
+      icon: Award, 
+      value: "15+", 
+      label: "Лет опыта",
+      color: "text-purple-500"
+    },
+    { 
+      icon: Shield, 
+      value: "100%", 
+      label: "Гарантия безопасности",
+      color: "text-green-500"
+    },
+  ];
 
   return (
-    <section className="py-20 lg:py-28">
+    <section className="py-20 lg:py-28 bg-gradient-to-br from-primary/5 to-secondary/20">
       <div className="container mx-auto px-4">
-        <div className="mx-auto max-w-2xl">
+        <div className="mx-auto max-w-4xl text-center">
+          <h2 className="mb-4 text-3xl font-bold text-foreground">
+            Нам доверяют ваши улыбки
+          </h2>
+          <p className="text-muted-foreground text-lg mb-12">
+            Присоединяйтесь к тысячам пациентов, которые уже выбрали нас
+          </p>
 
-          <div className="mb-10 text-center">
-            <h2 className="mb-4 text-3xl font-bold">
-              Отправить заявку
-            </h2>
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {stats.map((stat, index) => {
+              const Icon = stat.icon;
+              return (
+                <div key={index} className="text-center">
+                  <div className="w-16 h-16 bg-card border border-border rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Icon className={`w-8 h-8 ${stat.color}`} />
+                  </div>
+                  <div className="text-3xl font-bold text-foreground mb-2">
+                    {stat.value}
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    {stat.label}
+                  </div>
+                </div>
+              );
+            })}
           </div>
-
-          <form
-            className="space-y-6"
-            onSubmit={async (e) => {
-              e.preventDefault();
-
-              const form = e.currentTarget;
-              const formData = new FormData(form);
-
-              const data = {
-                name: formData.get("name"),
-                phone: formData.get("phone"),
-                email: formData.get("email"),
-                date: formData.get("date"),
-                comment: formData.get("comment"),
-              };
-
-              const res = await fetch("/api/appointments", {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify(data),
-              });
-
-              if (res.ok) {
-                alert("Заявка отправлена!");
-                form.reset();
-              }
-            }}
-          >
-
-            <div className="grid gap-6 sm:grid-cols-2">
-
-              <div>
-                <Label htmlFor="name">Имя</Label>
-                <Input name="name" id="name" required />
-              </div>
-
-              <div>
-                <Label htmlFor="date">Желаемая дата</Label>
-                <Input name="date" id="date" type="date" />
-              </div>
-
-            </div>
-
-            <div className="grid gap-6 sm:grid-cols-2">
-
-              <div>
-                <Label htmlFor="phone">Телефон</Label>
-                <Input name="phone" id="phone" required />
-              </div>
-
-              <div>
-                <Label htmlFor="email">Email</Label>
-                <Input name="email" id="email" type="email" />
-              </div>
-
-            </div>
-
-            <div>
-              <Label htmlFor="comment">Комментарий</Label>
-              <Textarea name="comment" id="comment" />
-            </div>
-
-            <div className="flex items-start gap-3">
-              <Checkbox
-                id="terms"
-                checked={agreed}
-                onCheckedChange={(checked) => setAgreed(checked as boolean)}
-              />
-              <Label htmlFor="terms">
-                Принимаю условия обработки персональных данных
-              </Label>
-            </div>
-
-            <Button
-              type="submit"
-              size="lg"
-              className="w-full"
-              disabled={!agreed}
-            >
-              Отправить заявку
-            </Button>
-
-          </form>
-
         </div>
       </div>
     </section>

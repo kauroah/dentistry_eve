@@ -12,7 +12,7 @@ import { EvaDentLogo } from "@/public/logo/eva-dent-logo";
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
+//  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -38,7 +38,7 @@ export function Header() {
         { name: "Протезирование", href: "/stomatologiya/protezirovanie" },
         { name: "Ортодонтия", href: "/stomatologiya/brekety" },
         { name: "Хирургия", href: "/stomatologiya/khirurgiya" },
-        { name: "Ортопедия", href: "/stomatologiya/ortapedia" },
+        { name: "Ортопедия", href: "/stomatologiya/ortopediya" },
         { name: "Все услуги", href: "/stomatologiya/tseny" },
       ]
     },
@@ -65,7 +65,7 @@ export function Header() {
               
               <div className="flex items-center gap-2 text-muted-foreground" itemProp="openingHours" content="Mo-Sa 09:00-21:00">
                 <Clock className="h-4 w-4 text-primary" />
-                <span>Ежедневно 09:00 – 21:00</span>
+                <span>Ежедневно 08:00 – 22:00</span>
               </div>
               
               <div itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
@@ -81,7 +81,7 @@ export function Header() {
               
               <div className="flex items-center gap-2 text-muted-foreground">
                 <MapPin className="h-4 w-4 text-primary" />
-                <span>ул. Островского, 21</span>
+                <span>ул. Островского, 21/8</span>
               </div>
             </div>
             
@@ -94,42 +94,10 @@ export function Header() {
                   info@evadent.ru
                 </a>
               </span>
-              
-              {/* Search toggle for larger screens */}
-              <button 
-                onClick={() => setIsSearchOpen(!isSearchOpen)}
-                className="text-muted-foreground hover:text-primary transition-colors"
-                aria-label="Поиск"
-              >
-                <Search className="h-4 w-4" />
-              </button>
             </div>
           </div>
         </div>
       </div>
-
-      {/* Search Bar (conditionally shown) */}
-      {isSearchOpen && (
-        <div className="bg-background border-b border-border py-4">
-          <div className="container mx-auto px-4">
-            <form action="/search" method="GET" className="relative">
-              <input
-                type="text"
-                name="q"
-                placeholder="Поиск услуг, врачей, информации..."
-                className="w-full rounded-full border border-border bg-muted/50 px-6 py-3 pr-12 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20"
-                aria-label="Поиск по сайту"
-              />
-              <button 
-                type="submit"
-                className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-primary p-2 text-primary-foreground"
-              >
-                <Search className="h-4 w-4" />
-              </button>
-            </form>
-          </div>
-        </div>
-      )}
 
       {/* MAIN HEADER */}
       <header 
@@ -306,7 +274,7 @@ export function Header() {
                         </div>
                         <div className="flex items-center gap-2 text-sm">
                           <MapPin className="h-4 w-4 text-primary" />
-                          <span className="text-muted-foreground">г. Казань, ул. Островского, 21</span>
+                          <span className="text-muted-foreground">г. Казань, ул. Островского, 21/8</span>
                         </div>
                         <a 
                           href="tel:+78432770777" 

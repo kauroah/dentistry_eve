@@ -133,7 +133,7 @@ export default function SberZdoroviePage() {
                 </div>
                 <div className="flex items-center gap-3">
                   <MapPin className="h-4 w-4 text-[#21A038]" />
-                  г. Казань, ул. Островского, 21
+                  г. Казань, ул. Островского, 21/8
                 </div>
                 <div className="flex items-center gap-3">
                   <Clock className="h-4 w-4 text-[#21A038]" />

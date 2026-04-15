@@ -8,7 +8,7 @@ const services = [
   { title: "Протезирование", href: "/stomatologiya/protezirovanie" },
   { title: "Ортодонтия", href: "/stomatologiya/brekety" },
   { title: "Хирургия", href: "/stomatologiya/khirurgiya" },
-  { title: "Ортопедия", href: "/stomatologiya/ortapedia" },
+  { title: "Ортопедия", href: "/stomatologiya/ortopediya" },
   { title: "Гигиена", href: "/stomatologiya/gigiena" },
 ];
 
@@ -74,7 +74,7 @@ export function Footer() {
               },
               {
                 "@type": "PostalAddress",
-                streetAddress: "ул. Островского, 21",
+                streetAddress: "ул. Островского, 21/8",
                 addressLocality: "Казань",
                 addressRegion: "Татарстан",
                 postalCode: "420000",
@@ -186,7 +186,7 @@ export function Footer() {
                     ул. Назарбаева, 10
                   </span>
                   <span className="text-sm text-primary-foreground/70">
-                    ул. Островского, 21
+                    ул. Островского, 21/8
                   </span>
                   <span className="text-xs text-primary-foreground/50">Казань</span>
                 </div>
@@ -212,7 +212,7 @@ export function Footer() {
               <li className="flex items-center gap-3">
                 <Clock className="h-5 w-5 shrink-0 text-primary" />
                 <div className="flex flex-col">
-                  <span className="text-sm text-primary-foreground/70">Пн-Сб: 9:00 - 20:00</span>
+                  <span className="text-sm text-primary-foreground/70">Пн-Сб: 8:00 - 20:00</span>
                   <span className="text-xs text-primary-foreground/50">Вс: выходной</span>
                 </div>
               </li>

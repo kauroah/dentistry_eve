@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/accordion";
 import { CTASection } from "@/components/cta-section";
 import { CheckCircle, ArrowRight } from "lucide-react";
+import { AppointmentModal } from "@/components/appointment-modal";
 
 export const metadata: Metadata = {
   title: "Имплантация зубов в Казани — Straumann, Medentika | Eva Dent",
@@ -37,32 +38,17 @@ const implantServices = {
       price: "120 000 ₽",
     },
     {
-      title: "Имплант Антожир (Франция)",
-      description: "Установка импланта французской системы Антожир",
-      price: "75 000 ₽",
-    },
-    {
-      title: "Имплант Астра тех/нобель/штрауман",
-      description: "Установка импланта премиум-класса Astra Tech / Nobel / Straumann",
-      price: "60 000 ₽",
+      title: "Имплант Антожир (Франция) коронка + имплант, винтовая фиксация",
+      description: "Комплексное восстановление зуба: имплант Антожир + коронка с винтовой фиксацией",
+      price: "85 000 ₽",
     },
     {
       title: "Имплант тонкий 3,0",
       description: "Установка тонкого импланта диаметром 3.0 мм для узких промежутков",
-      price: "40 000 ₽",
-    },
-    {
-      title: "Установка 1 импланта системы SGS (Швейцария)",
-      description: "Установка одного импланта швейцарской системы SGS",
-      price: "20 000 ₽",
-    },
-    {
-      title: "Установка импланта системы ADIN",
-      description: "Установка импланта израильской системы ADIN",
-      price: "15 000 ₽",
+      price: "85 000 ₽",
     },
   ],
-  abutments: [
+  /*abutments: [
     {
       title: "Абатмент Straumann",
       description: "Соединительный элемент между имплантом и коронкой, система Straumann",
@@ -101,19 +87,49 @@ const implantServices = {
       price: "25 000 ₽",
     },
     {
+      title: "Мембрана Contur, Bio-Gide 15х20",
+      description: "Коллагеновая мембрана Contur Bio-Gide для направленной костной регенерации, размер 15х20 мм",
+      price: "15 000 ₽",
+    },
+    {
+      title: "Мембрана Contur, Bio-Gide 20х30",
+      description: "Коллагеновая мембрана Contur Bio-Gide для направленной костной регенерации, размер 20х30 мм",
+      price: "25 000 ₽",
+    },
+    {
+      title: "Мембрана Contur, Bio-Gide 30х40",
+      description: "Коллагеновая мембрана Contur Bio-Gide для направленной костной регенерации, размер 30х40 мм",
+      price: "35 000 ₽",
+    },
+    {
       title: "Гель BGM-GEL 0.5ml",
       description: "Гель для стимуляции костеобразования, 0.5 мл",
-      price: "15 000 ₽",
+      price: "18 000 ₽",
     },
     {
       title: "Гель BGM-GEL 1 ml",
       description: "Гель для стимуляции костеобразования, 1 мл",
-      price: "18 000 ₽",
+      price: "21 000 ₽",
+    },
+    {
+      title: "Подсадка костной ткани Ibone-max 0,6 гр.",
+      description: "Костнопластический материал Ibone-max для наращивания костной ткани, 0,6 грамма",
+      price: "25 000 ₽",
+    },
+    {
+      title: "Подсадка костной ткани Ibone-max 1,2 мг",
+      description: "Костнопластический материал Ibone-max для наращивания костной ткани, 1,2 грамма",
+      price: "33 000 ₽",
+    },
+    {
+      title: "Подсадка костной ткани Ibone-max 2,4 мг",
+      description: "Костнопластический материал Ibone-max для наращивания костной ткани, 2,4 грамма",
+      price: "43 000 ₽",
     },
     {
       title: "Использование титановой мембраны",
       description: "Титановая мембрана для направленной костной регенерации",
-      price: "20 000 ₽",
+      price: "25 000 ₽",
     },
     {
       title: "Мембрана Evolution (толстая) 20*20",
@@ -143,9 +159,19 @@ const implantServices = {
       price: "25 000 ₽",
     },
     {
-      title: "Операция открытый синус лифтинг",
-      description: "Открытая операция по поднятию дна гайморовой пазухи с костной пластикой",
-      price: "50 000 ₽",
+      title: "Операция открытый синус лифтинг с использованием 0,6 гр. костного материала",
+      description: "Открытая операция по поднятию дна гайморовой пазухи с костной пластикой, 0,6 гр. материала",
+      price: "65 000 ₽",
+    },
+    {
+      title: "Операция открытый синус лифтинг с использованием 1,2 гр. костного материала",
+      description: "Открытая операция по поднятию дна гайморовой пазухи с костной пластикой, 1,2 гр. материала",
+      price: "75 000 ₽",
+    },
+    {
+      title: "Операция открытый синус лифтинг с использованием 2,4 гр. костного материала",
+      description: "Открытая операция по поднятию дна гайморовой пазухи с костной пластикой, 2,4 гр. материала",
+      price: "95 000 ₽",
     },
     {
       title: "Операция имплантации одного цилиндрического имплантанта системой \"Dio\" и \"Osstem\"",
@@ -175,7 +201,7 @@ const implantServices = {
     {
       title: "Хирургический этап установки импланта",
       description: "Хирургическая процедура установки импланта (без стоимости импланта)",
-      price: "18 000 ₽",
+      price: "35 000 ₽",
     },
     {
       title: "Установка формирователя десны",
@@ -185,7 +211,7 @@ const implantServices = {
     {
       title: "Извлечение внутреннего винта из имплантата",
       description: "Хирургическая процедура по извлечению сломанного винта из импланта",
-      price: "10 000 ₽",
+      price: "20 000 ₽",
     },
   ],
   instruments: [
@@ -197,7 +223,7 @@ const implantServices = {
     {
       title: "Использование винтов для фиксации (КонМет)",
       description: "Винты для фиксации костных блоков, система КонМет",
-      price: "7 000 ₽",
+      price: "10 000 ₽",
     },
     {
       title: "Использование костного скребка",
@@ -212,7 +238,7 @@ const implantServices = {
     {
       title: "Формирователь десны astra tech",
       description: "Формирователь десны для системы Astra Tech",
-      price: "10 000 ₽",
+      price: "15 000 ₽",
     },
     {
       title: "Формирователь десны нобель",
@@ -220,6 +246,28 @@ const implantServices = {
       price: "8 000 ₽",
     },
   ],
+  crowns: [
+    {
+      title: "Коронка мет/керам на имплант DIO (винтовая фиксация)",
+      description: "Металлокерамическая коронка на имплант DIO с винтовой фиксацией",
+      price: "45 000 ₽",
+    },
+    {
+      title: "Цирконевая коронка на имплантате (доплата за материал)",
+      description: "Доплата за циркониевый материал при изготовлении коронки на импланте",
+      price: "35 000 ₽",
+    },
+  ],*/
+};
+
+// Category titles in Russian
+const categoryTitles = {
+  implants: "Импланты",
+  abutments: "Абатменты",
+  boneMaterials: "Костные материалы и мембраны",
+  surgicalProcedures: "Хирургические процедуры",
+  instruments: "Инструменты и формирователи",
+  crowns: "Коронки на имплантах",
 };
 
 const benefits = [
@@ -259,14 +307,6 @@ const faqs = [
   },
 ];
 
-// Category titles in Russian
-const categoryTitles = {
-  implants: "Импланты",
-  abutments: "Абатменты",
-  boneMaterials: "Костные материалы и мембраны",
-  surgicalProcedures: "Хирургические процедуры",
-  instruments: "Инструменты и формирователи",
-};
 
 export default function ImplantatsiyaPage() {
   return (
@@ -299,10 +339,14 @@ export default function ImplantatsiyaPage() {
                 ))}
               </div>
               <div className="flex flex-col gap-3 sm:flex-row">
-                <Button size="lg" className="gap-2">
-                  Записаться на консультацию
-                  <ArrowRight className="h-4 w-4" />
+              <AppointmentModal>
+                <Button 
+                  size="lg" 
+                  className="hidden sm:inline-flex rounded-full px-6 bg-primary hover:bg-primary/90 transition-all hover:scale-105 active:scale-95"
+                >
+                  Записаться на приём
                 </Button>
+              </AppointmentModal>
                 <Button size="lg" variant="outline" asChild>
                   <Link href="/stomatologiya/tseny">Узнать цены</Link>
                 </Button>
@@ -310,7 +354,7 @@ export default function ImplantatsiyaPage() {
             </div>
             <div className="relative aspect-4/3 overflow-hidden rounded-2xl">
               <Image
-                src="/images/dental-implant.jpg"
+                src="/images/implm.JPG"
                 alt="Имплантация зубов в клинике Eva Dent Казань"
                 fill
                 className="object-cover"
