@@ -12,7 +12,7 @@ const doctors = [
     surname: "Аднан Бурхан",
     specialty: "Ортодонтия",
     role: "Директор, врач-ортодонт",
-    image: "https://eva-dent.com/wp-content/uploads/2021/03/allush1.jpg",
+    image: "/images/doctors/allush1.jpg"
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ const doctors = [
     surname: "Наталья Сергеевна",
     specialty: "Хирургия, имплантология",
     role: "Главный врач, хирург, имплантолог",
-    image: "https://eva-dent.com/wp-content/uploads/2021/03/allush2.jpg",
+    image: "/images/doctors/allush2.jpg",
   },
   {
     id: 3,
@@ -30,7 +30,7 @@ const doctors = [
     surname: "Тарек Ахмедович",
     specialty: "Ортопедия, терапия",
     role: "Стоматолог ортопед-терапевт",
-    image: "https://eva-dent.com/wp-content/uploads/2021/03/15_vafa-min.jpg",
+    image: "/images/doctors/15_vafa-min.jpg",
   },
   {
     id: 4,
@@ -39,8 +39,7 @@ const doctors = [
     surname: "Евгения Сергеевна",
     specialty: "Терапевтическая стоматология",
     role: "Стоматолог-терапевт",
-    image:
-      "https://eva-dent.com/wp-content/uploads/2021/03/16040893_maruseva-evgeniya-sergeevna-_result__-min-min.jpg",
+    image: "/images/doctors/evgeniya-sergeevna.jpg",
   },
   {
     id: 5,
@@ -49,7 +48,7 @@ const doctors = [
     surname: "Мохинав Исо",
     specialty: "Терапевтическая стоматология",
     role: "Стоматолог-терапевт",
-    image: "https://eva-dent.com/wp-content/uploads/2025/04/iso.webp",
+    image: "/images/doctors/iso.webp",
   },
   {
     id: 6,
@@ -58,8 +57,7 @@ const doctors = [
     surname: "Равиль Фаритович",
     specialty: "Стоматология",
     role: "Врач-стоматолог",
-    image:
-      "https://eva-dent.com/wp-content/uploads/2025/08/Ravil-Faritovich-Nuriev.webp",
+    image: "/images/doctors/Ravil-Faritovich-Nuriev.webp",
   },
   {
     id: 7,
@@ -68,7 +66,7 @@ const doctors = [
     surname: "Тамер Хасан",
     specialty: "Ортопедия",
     role: "Стоматолог-ортопед",
-    image: "https://eva-dent.com/wp-content/uploads/2021/01/tamer.webp",
+    image: "/images/doctors/tamer.webp",
   },
 ];
 

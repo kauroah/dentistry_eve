@@ -88,10 +88,10 @@ export function Header() {
             <div className="flex items-center gap-4">
               <span itemProp="email">
                 <a 
-                  href="mailto:info@evadent.ru" 
+                  href="mailto:eva.dent@mail.ru" 
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
-                  info@evadent.ru
+                  eva.dent@mail.ru
                 </a>
               </span>
             </div>
@@ -284,10 +284,10 @@ export function Header() {
                           +7 (843) 277-07-77
                         </a>
                         <a 
-                          href="mailto:info@evadent.ru" 
+                          href="mailto:eva.dent@mail.ru" 
                           className="text-sm text-muted-foreground hover:text-primary transition-colors block"
                         >
-                          info@evadent.ru
+                          eva.dent@mail.ru
                         </a>
                         <AppointmentModal>
                           <Button className="w-full rounded-full mt-2">

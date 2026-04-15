@@ -34,7 +34,7 @@ export function LocalBusinessJsonLd() {
     description: "Современная стоматологическая клиника в Казани",
     url: "https://evadent.ru",
     telephone: "+78432770777",
-    email: "info@evadent.ru",
+    email: "eva.dent@mail.ru",
     priceRange: "₽₽",
     openingHoursSpecification: [
       {

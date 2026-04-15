@@ -1,3 +1,5 @@
+"use client";
+
 import type { Metadata } from "next";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -5,12 +7,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Phone, MapPin, Clock, Mail, MessageCircle } from "lucide-react";
-
-export const metadata: Metadata = {
-  title: "Контакты — Стоматология Eva Dent в Казани",
-  description:
-    "Контактная информация стоматологии Eva Dent в Казани. Адрес, телефон, часы работы, форма записи на приём.",
-};
 
 const contactInfo = [
   {
@@ -35,25 +31,28 @@ const contactInfo = [
   },
 ];
 
-export default function ContactPage() {
-  async function handleSubmit(formData: FormData) {
-    "use server";
+async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  e.preventDefault();
 
-    const data = {
-      name: formData.get("name"),
-      phone: formData.get("phone"),
-      service: formData.get("service"),
-      comment: formData.get("message"),
-    };
+  const formData = new FormData(e.currentTarget);
 
-    await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/appointments`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-  }
+  const data = {
+    name: formData.get("name"),
+    phone: formData.get("phone"),
+    service: formData.get("service"),
+    comment: formData.get("message"),
+  };
+
+  await fetch("https://admin-ten-zeta-51.vercel.app/api/bookings", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+}
+
+  export default function ContactPage() {
 
   return (
     <>
@@ -139,8 +138,7 @@ export default function ContactPage() {
 
               <CardContent>
 
-                <form action={handleSubmit} className="grid gap-4">
-
+              <form onSubmit={handleSubmit} className="grid gap-4">
                   <div className="grid gap-2">
                     <Label htmlFor="name">Ваше имя</Label>
                     <Input

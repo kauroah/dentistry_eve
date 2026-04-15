@@ -37,14 +37,14 @@ export default async function DoctorPage({
     "@graph": [
       {
         "@type": "Physician",
-        "@id": `https://evadent.ru/doctors/${slug}`,
+        "@id": `https://eva-dent.com/doctors/${slug}`,
         name: `${doctor.name} ${doctor.surname}`,
         image: doctor.image,
         description: doctor.description?.replace(/\s+/g, ' ').trim(),
         medicalSpecialty: doctor.specialty,
         knowsAbout: doctor.services,
         jobTitle: doctor.role,
-        email: "info@evadent.ru",
+        email: "eva.dent@mail.ru",
         telephone: "+78431234567",
         alumniOf: doctor.education?.map((edu: string) => ({
           "@type": "CollegeOrUniversity",
@@ -66,7 +66,7 @@ export default async function DoctorPage({
             addressCountry: "RU",
           },
           telephone: "+78431234567",
-          url: "https://evadent.ru",
+          url: "https://eva-dent.com",
           openingHours: "Mo-Fr 09:00-21:00, Sa-Su 10:00-20:00",
         },
         aggregateRating: {
@@ -79,25 +79,25 @@ export default async function DoctorPage({
       },
       {
         "@type": "BreadcrumbList",
-        "@id": `https://evadent.ru/doctors/${slug}#breadcrumb`,
+        "@id": `https://eva-dent.com/doctors/${slug}#breadcrumb`,
         itemListElement: [
           {
             "@type": "ListItem",
             position: 1,
             name: "Главная",
-            item: "https://evadent.ru",
+            item: "https://eva-dent.com",
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "Врачи",
-            item: "https://evadent.ru/doctors",
+            item: "https://eva-dent.com/doctors",
           },
           {
             "@type": "ListItem",
             position: 3,
             name: `${doctor.name} ${doctor.surname}`,
-            item: `https://evadent.ru/doctors/${slug}`,
+            item: `https://eva-dent.com/doctors/${slug}`,
           },
         ],
       },

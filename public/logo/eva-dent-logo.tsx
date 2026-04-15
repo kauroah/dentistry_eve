@@ -19,7 +19,7 @@ export function EvaDentLogo({
       <defs>
         <mask id="logo-mask">
           <image
-            href="https://eva-dent.com/wp-content/uploads/2021/03/logo.png"
+            href="/loggo.png"
             width="420"
             height="120"
           />
